@@ -29,7 +29,7 @@ Among various cost functions, the most commonly used is the squared error cost f
 
 Selecting different parameters $θ_0$,$θ_1$, the resulting $h$ is different, and the final straight line is also different:
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/33.png) 
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/34.png) 
 
 ## Modeling error
 ## Squared error cost function
