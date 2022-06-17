@@ -25,9 +25,11 @@ The goal of linear regression algorithm optimization(优化) is to select the st
 In order to minimize the modeling error, we need to adjust the parameters $θ_0$,$θ_1$ so that the value of the cost function $J(θ_0,θ_1)$ is minimized.  
 Among various cost functions, the most commonly used is the squared error cost function.  
 ## How to select the parameter θ of the model
-$h_θ(x)=θ_0+θ_1x$,it corresponds to two model parameters $θ_0$,$θ_1$ .
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/32.png) 
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/4.png) 
+Selecting different parameters $θ_0$,$θ_1$, the resulting $h$ is different, and the final straight line is also different:
+
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/33.png) 
 
 ## Modeling error
 ## Squared error cost function
