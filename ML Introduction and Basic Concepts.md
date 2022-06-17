@@ -16,8 +16,9 @@ The term supervised learning refers to the fact that we give the algorithm a dat
   The following image is an example of making predictions based on two features (two dimensions), with other possible dimensions on the right (dimensions may be infinitely numerous)  
   ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/4.png)
 ### Unsupervised learning
-The dataset used for learning doesn't have any labels or has the same labels。Known datasets, not how to process them, and no telling what each data point is.  
-Given the dataset,a unsupervised learning algorithm will find some structure in the data to decide that the data lives in different clusters(簇),then break these data into different separate clusters.  
+The dataset used for learning doesn't have any labels or has the same labels.  
+Known datasets, don't know how to process them, and no telling what each data point is.  
+Given the dataset,a unsupervised learning algorithm will find some structure in the data to decide that the data lives in different clusters,then break these data into different separate clusters.  
 ####  Clustering algorithm in real-life applications
 + example 1:Every day, Google News divides the crawling URLs into news features.  
 + example 2:Gene information grouping.  
