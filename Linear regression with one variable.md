@@ -13,6 +13,7 @@ The meaning of each variable is defined as follows:
 |$h$|hypothesis function|
 ##  Linear regression with one variable
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/2.png)  
+
 we get y value based on input x value via h function.So,h is a function mapping from x to y.
 One possible expression for h is as follows.
 $h_θ(x)=θ_0+θ_1x$  
@@ -20,7 +21,14 @@ Since there is only one feature/input variable, such a problem is called linear 
 
 ------------------------------------------------------------------------------------------------------
 # Cost Function
+The goal of linear regression algorithm optimization(优化) is to select the straight line that is most likely to fit the data. The error between the data and the straight line is called modeling error.  
+In order to minimize the modeling error, we need to adjust the parameters $θ_0$,$θ_1$ so that the value of the cost function $J(θ_0,θ_1)$ is minimized.  
+Among various cost functions, the most commonly used is the squared error cost function.  
 ## How to select the parameter θ of the model
+$h_θ(x)=θ_0+θ_1x$,it corresponds to two model parameters $θ_0$,$θ_1$ .
+
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/4.png) 
+
 ## Modeling error
 ## Squared error cost function
 ## Intuitive understanding of the cost function I
