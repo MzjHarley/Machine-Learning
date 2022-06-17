@@ -2,6 +2,7 @@
 A computer program is said to learn from experience E with respect to some task T and some performance measure(性能度量)P,if its performance on T,as measured by P,improves with experience E.  
 # Machine learning algorithms
 ## The main two types of Machine learning algorithms
+-------------------------------------------------------------
 + Supervised Learning: The dataset used for learning is labeled.  
 + Unsupervised Learning：The dataset used for learning doesn't have any labels or has the same labels。Known datasets, not how to process them, and no telling what each data point is.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/1.png)![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/8.png)    
@@ -26,7 +27,8 @@ Given the dataset,a unsupervised learning algorithm will find some structure in 
 + example 3:Organize a large cluster of computers/Analysis of social networks/Market segmentation/Astronomical data analysis
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/10.png)  
 + example 4:Cocktail party issues that take apart multiple audio sources that are mixed together.  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/11.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/11.png) 
+-------------------------------------------------------
 ## others
 + Reinforcement learning(强化学习) 
 + recommender systems(推荐系统)
