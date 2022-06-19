@@ -83,42 +83,42 @@ The value in the figure below is located at the lowest point of the 3D graph, an
 ## Local optimum
 There is already a cost function, and our goal is to minimize it. Normally, start with$ ~ θ_0=0,θ_1=0$, adjust $θ_0, θ_1$, and end at the minimum value of $J(θ_0, θ_1)$.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/17.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/40.png)  
 
 In the example below,$θ_0$ and $θ_1$ don't start at 0,0. When selecting two different starting points and gradient descent along different directions, we will reach two different optimal solutions, which are called local optimum solutions.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/18.png)![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/19.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/41.png)![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/42.png)  
 ## Gradient descent algorithm
 The gradient descent algorithm assigns a value to$ ~ θ$, so that $J(θ)$ proceeds in the fastest direction of gradient descent, and iterates continuously until a local minimum value is finally obtained, that is, convergence(收敛). The gradient descent algorithm is not only used for linear regression, but can be used to minimize any cost function $J$. The formula is as follows.  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
 $\alpha$ is learning rate,which determines how big a step is taken down in the direction that reduces the cost function the most.  
 In the gradient descent algorithm, the two parameters are updated simultaneously(同步地) (bottom left). If it is a non-simultaneous update (bottom right), it is not gradient descent.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/21.png)   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/43.png)   
 
 ## Intuitive understanding of Gradient descent 
 ### Update rule of Gradient descent algorithm
-The gradient descent algorithm is as follows.
+The gradient descent algorithm is as follows.  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
 The purpose of derivation(求导) can basically be said to take the tangent of the red point, that is, the red line. Since the slope(斜率) on the right side of the curve is positive, the derivative term is positive. Therefore,$ ~ θ_1$ minus a positive number multiplied by $α$, the value becomes smaller.
 The slope on the left side of the curve is negative and the derivative term is negative. Therefore, $ ~ θ_1$ minus a negative number multiplied by $α$, the value becomes larger.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/22.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/44.png)  
 
 ### The selection of learning rate α
 If $α$ is too small, it can only descend(下降) in small steps, and it takes many steps to reach the global minimum, which is very slow.  
 If $α$ is too large, the algorithm may go over the lowest point. Crossed the lowest point again and again, farther and farther away from it. It will lead to failing to converge, or even divergence.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/23.png)   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/45.png)   
 
 ### without adjusting α,J(θ) can also converge
 Suppose$ ~ θ_1$ is initialized at the local minimum. A derivative of 0 will make $θ_1$ no longer change, and won't change the value of the parameter. It also explains why gradient descent can converge to a local minimum even when the learning rate $α$ remains constant.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/24.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/46.png)  
 
 Why is it possible to reach the local optimum without adjusting $α$? Because after one step of gradient descent, the new derivative will become smaller, and the magnitude(量级) of the movement will automatically become smaller. Until the final movement is very small, it has converged to a local minimum.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/25.png)   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/47.png)   
 
 ------------------------------------------------------------------------------------------------------
 # Gradient Descent For Linear Regression
