@@ -20,7 +20,7 @@ The term supervised learning refers to the fact that we give the algorithm a dat
 ### Unsupervised learning
 The dataset used for learning doesn't have any labels or has the same labels.  
 Known datasets, don't know how to process them, and no telling what each data point is.  
-Given the dataset,a unsupervised learning algorithm will find some structure in the data to decide that the data lives in different clusters,then break these data into different separate clusters.  
+Given the dataset,an unsupervised learning algorithm will find some structure in the data to decide that the data lives in different clusters,then break these data into different separate clusters.  
 ####  Clustering algorithm in real-life applications
 + example 1:Every day, Google News divides the crawling URLs into news features.  
 + example 2:Gene information grouping.  
