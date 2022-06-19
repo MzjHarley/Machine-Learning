@@ -118,7 +118,7 @@ Suppose$ ~ θ_1$ is initialized at the local minimum. A derivative of 0 will mak
 
 Why is it possible to reach the local optimum without adjusting $α$? Because after one step of gradient descent, the new derivative will become smaller, and the magnitude(量级) of the movement will automatically become smaller. Until the final movement is very small, it has converged to a local minimum.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/47.png)   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/48.png)   
 
 ------------------------------------------------------------------------------------------------------
 # Gradient Descent For Linear Regression
