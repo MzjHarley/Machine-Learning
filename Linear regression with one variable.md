@@ -125,22 +125,24 @@ Why is it possible to reach the local optimum without adjusting $α$? Because af
 ## Gradient descent and linear regression combined
 Combining the squared error function& ~ h(x)$ with the gradient descent method and the squared cost function $J(Θ)$, we get the first machine learning algorithm, that isLinear Regression.  
 **gradient descent algorithm:**  
-$$repeat ~ until ~ convergence \lbrace\\ 
-θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)\\ 
-for(j=0 and j=1)\\ 
-\rbrace$$  
+$repeat ~ until ~ convergence \lbrace$  
+$θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
+$for(j=0 ~ and ~ j=1)$  
+$\rbrace$  
 **Linear Regression Model:**  
 $h_θ(x)=θ_0+θ_1x$   
 $J(θ_0,θ_1)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$   
 Using the gradient descent method for the previous linear regression problem, the key is to find the derivative of the cost function $J(θ)$
-$$\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2\\
-&&&&=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})\frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})\]\\
-&&&&=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_{(i)}\]
-$$   
-when$ ~ j=0$,\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
-when$ ~ j=1$,\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_{(i)}\]$.  
+$\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
+$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})\frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})\]$  
+$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$  
+when$ ~ j=0$,$\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
+when$ ~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$.  
 Bring the above two derivatives into the gradient descent algorithm to replace the original $\frac{\partial}{\partial{θ_j}}J(θ)$,the gradient descent algorithm becomes:  
-$repeat until convergence{\\θ_0:=θ_0-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})\\θ_1:=θ_1-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_{(i)}\]\\}$   
+$repeat until convergence \lbrace$  
+$θ_0:=θ_0-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$  
+$θ_1:=θ_1-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$  
+$\rbrace$  
 Although gradient descent is generally susceptible(受影响的) to local minimum, the optimization problem we propose in linear regression has only one global optimal solution and no other local optimal solutions, and the cost function is a convex(凸的) quadratic function. Therefore, gradient descent always converges to a global minimum (assuming the learning rate α is not too large).
 ## batch gradient descent(批处理梯度下降)
 The algorithm used above is also called batch gradient descent, which means that each step of gradient descent involves all training instances. There are also other types of non-batch gradient descent that only focus on a small subset of the training set at a time.  
