@@ -68,7 +68,7 @@ When both$ ~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ 
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/36.png)  
 
-since the 3D image looks too complicated, project it to a 2D plane. Introduce the concept of contour plot, also called contour figure. For points on the contour line, the corresponding cost function $J(θ_0,θ_1)$ takes the same value.  
+Since the 3D image looks too complicated, project it to a 2D plane. Introduce the concept of contour plot, also called contour figure. For points on the contour line, the corresponding cost function $J(θ_0,θ_1)$ takes the same value.  
 In the following two figures, the line corresponding to the red dot on the right is shown in the left figure, which can be seen that it doesn't fit well.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/37.png)  
@@ -101,7 +101,7 @@ In the gradient descent algorithm, the two parameters are updated simultaneously
 The gradient descent algorithm is as follows.  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
 The purpose of derivation(求导) can basically be said to take the tangent of the red point, that is, the red line. Since the slope(斜率) on the right side of the curve is positive, the derivative term is positive. Therefore,$ ~ θ_1$ minus a positive number multiplied by $α$, the value becomes smaller.
-The slope on the left side of the curve is negative and the derivative term is negative. Therefore, $ ~ θ_1$ minus a negative number multiplied by $α$, the value becomes larger.  
+The slope on the left side of the curve is negative and the derivative term is negative. Therefore,$ ~ θ_1$ minus a negative number multiplied by $α$, the value becomes larger.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/44.png)  
 
