@@ -66,7 +66,16 @@ In the example below, the coordinates of the three data points are$~(1,1),(2,2),
 ## Intuitive understanding of the cost function II
 When both$ ~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ in three-dimensional space is as follows:  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/36.png)
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/36.png)  
+
+since the 3D image looks too complicated, project it to a 2D plane. Introduce the concept of contour plot, also called contour figure. For points on the contour line, the corresponding cost function $J(θ_0,θ_1)$ takes the same value.  
+In the following two figures, the line corresponding to the red dot on the right is shown in the left figure, which can be seen that it doesn't fit well.  
+
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/14.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/15.png)  
+
+
+
 
 ------------------------------------------------------------------------------------------------------
 # Gradient descent
