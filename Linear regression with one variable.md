@@ -71,10 +71,12 @@ When both$ ~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ 
 since the 3D image looks too complicated, project it to a 2D plane. Introduce the concept of contour plot, also called contour figure. For points on the contour line, the corresponding cost function $J(θ_0,θ_1)$ takes the same value.  
 In the following two figures, the line corresponding to the red dot on the right is shown in the left figure, which can be seen that it doesn't fit well.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/14.png)  
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/15.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/37.png)  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/38.png)  
 
+The value in the figure below is located at the lowest point of the 3D graph, and at the center of the contour line on the 2D graph. The corresponding hypothetical function $h(x)$ line is shown on the left. Although there is some error in the fitted data (blue vertical line), it is very close to the minimum.  
 
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/39.png)  
 
 
 ------------------------------------------------------------------------------------------------------
