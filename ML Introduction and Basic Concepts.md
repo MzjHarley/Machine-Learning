@@ -5,7 +5,7 @@ A computer program is said to learn from experience E with respect to some task 
 # Machine learning algorithms
 ## The main two types of Machine learning algorithms
 + Supervised Learning: The dataset used for learning is labeled.  
-+ Unsupervised Learning：The dataset used for learning doesn't have any labels or has the same labels。Known datasets, not how to process them, and no telling what each data point is.  
++ Unsupervised Learning：The dataset used for learning doesn't have any labels or has the same labels.Known datasets, don't know how to process them, and no telling what each data point is.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/1.png)![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/ML%20Introduction%20and%20Basic%20Concepts/8.png)    
 (the right example is unsupervised learning,which divides the data into two data collections. Also it's called clustering algorithm.)
 ### Supervised learning
