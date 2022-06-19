@@ -1,5 +1,5 @@
 # Machine Learning definition
-A computer program is said to learn from experience E with respect to some task T and some performance measure(性能度量)P,if its performance on T,as measured by P,improves with experience E.
+A computer program is said to learn from experience E with respect to some task T and some performance measure(性能度量)P,if its performance on T,as measured(评判) by P,improves with experience E.
 
 -------------------------------------------------------------
 # Machine learning algorithms
