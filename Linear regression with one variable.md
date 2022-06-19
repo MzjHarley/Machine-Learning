@@ -14,7 +14,7 @@ The meaning of each variable is defined as follows:
 ##  Linear regression with one variable
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/2.png)  
 
-we get y value based on input x value via h function.So,h is a function mapping from x to y.
+we get$~y$ value based on input $x$ value via $h$ function.So,$h$ is a function mapping from $x$ to $y$.
 One possible expression for h is as follows.
 $h_θ(x)=θ_0+θ_1x$  
 Since there is only one feature/input variable, such a problem is called linear with one variable regression problem.
@@ -27,7 +27,7 @@ Among various cost functions, the most commonly used is the squared error cost f
 ## How to select the parameter θ of the model
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/32.png) 
 
-Selecting different parameters $θ_0$,$θ_1$, the resulting $h$ is different, and the final straight line is also different:
+Selecting different parameters $θ_0,θ_1$, the resulting $h$ is different, and the final straight line is also different:
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/34.png) 
 
@@ -58,15 +58,16 @@ $θ_0,θ_1$
 **Cost Function:**  
 $J(θ_0,θ_1)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
 **Goal:**   
-$\underset{(θ_0,θ_1)}{minimize} ~~~ J(θ_0,θ_1)$   
-  
-    
-let $θ_0=0$  
-The cost function reduces to a function only about  $θ_1:h_θ(x)=θ_1x$   
-In the example below, the coordinates of the three data points are (1,1),(2,2),(3,3). When $θ_0=0 ~ and ~ only ~ θ_1$ is changed, the cost function is a quadratic curve.  
+$\underset{(θ_0,θ_1)}{minimize} ~~~ J(θ_0,θ_1)$      
+let$ ~ θ_0=0$,the cost function reduces to a function only about $θ_1:h_θ(x)=θ_1x$.  
+In the example below, the coordinates of the three data points are$~(1,1),(2,2),(3,3)$. When$~θ_0=0$ and only $θ_1$ is changed, the cost function is a quadratic curve.  
 
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/12.png)
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/35.png)
 ## Intuitive understanding of the cost function II
+When both$ ~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ in three-dimensional space is as follows:  
+
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/36.png)
+
 ------------------------------------------------------------------------------------------------------
 # Gradient descent
 ## Local optimum
