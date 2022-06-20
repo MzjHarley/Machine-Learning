@@ -111,8 +111,9 @@ If $α$ is too large, the algorithm may go over the lowest point. Crossed the lo
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/45.png)   
 
-### without adjusting α,J(θ) can also converge
-Suppose$ ~ θ_1$ is initialized at the local minimum. A derivative of 0 will make $θ_1$ no longer change, and won't change the value of the parameter. It also explains why gradient descent can converge to a local minimum even when the learning rate $α$ remains constant.  
+### without adjusting α,J(θ) can also converge  
+Suppose$ ~ θ_1$ is initialized at the local minimum. A derivative of 0 will make $θ_1$ no longer change, and won't change the value of the parameter.  
+It also explains why gradient descent can converge to a local minimum even when the learning rate $α$ remains constant.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/46.png)  
 
@@ -123,7 +124,7 @@ Why is it possible to reach the local optimum without adjusting $α$? Because af
 ------------------------------------------------------------------------------------------------------
 # Gradient Descent For Linear Regression
 ## Gradient descent and linear regression combined
-Combining the squared error function& ~ h(x)$ with the gradient descent method and the squared cost function $J(Θ)$, we get the first machine learning algorithm, that isLinear Regression.  
+Combining the squared error function$ ~ h(x)$ with the gradient descent method and the squared cost function $J(Θ)$, we get the first machine learning algorithm, that is Linear Regression.  
 **gradient descent algorithm:**  
 $repeat ~ until ~ convergence \lbrace$  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
