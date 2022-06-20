@@ -17,7 +17,7 @@ The meaning of each variable is defined as follows:
 we get$~y$ value based on input $x$ value via $h$ function.So,$h$ is a function mapping from $x$ to $y$.
 One possible expression for h is as follows.
 $h_θ(x)=θ_0+θ_1x$  
-Since there is only one feature/input variable, such a problem is called linear with one variable regression problem.
+Since there is only one feature/input variable, such a problem is called linear regression with one variable  problem.
 
 ------------------------------------------------------------------------------------------------------
 # Cost Function
