@@ -76,8 +76,8 @@ If there are n features, then Θ is n+1 dimensional. For each term J(Θj) of the
 photo  
 
 ### Solution to Normal Equations  
-$h_\theta(x)=x\Theta^T=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$
-$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$
+$h_\theta(x)=x\Theta^T=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
+$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
 $\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}$
 
 ### The Derivation Process of Θ of Normal Equation Solving
