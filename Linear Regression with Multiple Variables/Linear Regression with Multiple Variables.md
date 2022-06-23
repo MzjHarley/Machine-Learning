@@ -39,9 +39,34 @@ photo2
 In the multi-dimensional feature problem, to help the gradient descent algorithm converge faster, the features need to have a similar scale, which requires us to perform feature scaling(特征缩放).  
 Assuming two features, the value of house size is$ ~ 0-2000$, and the amount of rooms is $0-5$, the corresponding cost function contour map(left image) will be very flat (skewed elliptical shape), and gradient descent requires a lot of iterations to converge.  
 But if we divide house size by 2000 and amount of room by 5,try to scale all features between $-1$ and $1$ as much as possible, then we will get a nearly circular contour map(right image),from which it can be seen that gradient descent requires a few iterations to converge.  
-photo3
+photo3  
+The scale doesn‘t have to be -1 to 1, but the range cann’t be very large or very small.for example:  
+photo3   
+In addition to dividing all feature values by the maximum value of the feature, we can also use the following method for feature scaling.   
+|Normalization|Fomula|
+|---|---|
+|Mean Normalization|$x_i:=\frac{x_i-\mu_i}{s_i}, ~ s_i=(x.max) ~ or ~ (x.max-x.min)$|
+|Most Value Normalization|$x_i:=\frac{x_i-x.min}{x.max-x.min}$|
+|Mean Variance Normalization|$x_i:=\frac{x_i-\mu_i}{\sigma_i}$|
 ## Gradient Descent in Practice II - Learning Rate
-
+To ensure that the gradient descent algorithm works correctly, you can graph the relationship between iterations number and the cost function, and observe when the algorithm tends to converge (left).  
+There are also some methods to automatically test whether to converge or not, such as using a threshold(阈值) $\epsilon$ (right). Because the size of the threshold is difficult to choose, the graph on the left is better.  
+photo  
+As the number of iterations increases, the cost function should tend to decrease. If it rises or rises and falls frequently, it means that$ ~ α$ is obtained too large, which may lead to failing to converge. If $α$ is taken too small, the algorithm will run slowly but still decreasing, and usually converges after many iterations.  
+photo  
+For learning rate$ ~ \alpha$,you can try to use the following values:  
+$\cdots,0.001,0.003,0.01,0.03,\cdots,1,\cdots$
 ## Features and Polynomial Regression
+### Create new feature
+You don't have to use existing features, you can create new features, for example: area = length $\times$ width. Then the quadratic function becomes a univariate function.
+photo
+### Polynomial Regression  
+Quadratic equation model: $h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^{2}$  
+Cubic equation model: $h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^{2}+\theta_3x_3^{3}$   
+Because in real life, as the housing area increases, the housing price cann't decrease, and the quadratic curve will firstly rise and then fall. Choose a cubic model, introduce additional variables to replace higher powers, and convert it to a linear regression model.  
+photo  
+In order to fit the curve better, you can also use the square root.  
+photo
 ## Normal Equation
+
 ## Normal Equation Noninvertibility
