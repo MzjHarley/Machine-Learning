@@ -68,5 +68,17 @@ photo
 In order to fit the curve better, you can also use the square root.  
 photo
 ## Normal Equation
+### Normal Equation  
+The idea of the normal equation: Assuming that the partial derivative of the cost function J(Θ) is equal to 0, solve the equation to get the parameter Θ that minimizes the cost function J(Θ). That is, find the lowest point of the curve (the slope of the tangent is 0).
+In the simplest case, with only one dimension, the cost function is a quadratic curve:  
+photo 
+If there are n features, then Θ is n+1 dimensional. For each term J(Θj) of the cost function J(Θ), let its partial derivative be 0. Solve the equation mathematically to get Θj that minimizes the cost function J(Θj).  
+photo  
 
+### Solution to Normal Equations  
+$h_\theta(x)=x\Theta^T=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$
+$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$
+$\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}$
+
+### The Derivation Process of Θ of Normal Equation Solving
 ## Normal Equation Noninvertibility
