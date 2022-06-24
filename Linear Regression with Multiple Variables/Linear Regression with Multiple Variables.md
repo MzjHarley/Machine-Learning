@@ -117,4 +117,16 @@ $ ~ ~ ~ ~ ~ ~ ~ X^TX\Theta-X^TY=0$
 $ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ X^TX\Theta=X^TY$  
 $ ~ ~ ~ ~ (X^TX)^{-1}X^TX\Theta=(X^TX)^{-1}X^TY$  
 $ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \Theta=(X^TX)^{-1}X^TY$
+### Comparison of Gradient Descent and Normal Equation
++ Gradient descent needs to choose the learning rate $α$, iterates many steps, and the normal equation only needs one step.  
++ Normal equations rely on matrix calculations. Since the time complexity of calculating the inverse matrix is$ ~ O(n^3)$, when $n$ is relatively(比较) large, the calculation process will be particularly slow.Comparatively speaking,when $n$ is relatively(比较) large,Gradient descent works well.
 ## Normal Equation Noninvertibility
+What happens when the matrix$ ~ X^TX$ is irreversible? Irreversible problems rarely occur, and even if they do, the result can be calculated normally using $np.~ linalg. ~ pinv(a)$.
+>$np.~ linalg. ~ pinv(a), ~ pseudo-inverse,can find the inverse matrix of singular matrices and even non-singular matrices$  
+>$np.~ linalg. ~ inv(a), ~  inverse,introduces concepts of advanced numerical computing$
+  
+Two situations can lead to irreversibility:
++ There are redundant features, that is, the eigenvalues(特征值) ​​are linearly related (eg: $x_1 = constant \times  x_2$)  
+  Solution: Remove redundant features.  
++ Feature dimension n ≤ data size m (eg: 10 samples fit 101 parameters).   
+  Solution: delete features, or use the regularization method in linear algebra.
