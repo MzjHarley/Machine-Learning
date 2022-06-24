@@ -2,7 +2,7 @@
 ## Multiple Features
 **Multivariate linear regression**  
 Univariate regression models were discussed earlier. Now discussing the multivariate model, the features in the model are $(x_1,x_2,\cdots,x_n)$.  
-photo1  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/1.png)  
 Introduce new annotations:
 |Variable|meaning|
 |---|---|
@@ -34,14 +34,14 @@ The multivariate linear regression model is as follows.  To simplify, we add$ ~ 
 |$Gradient Descent$|$repeat ~ until ~ convergence \lbrace θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(\Theta) ~ ~ (simultaneously ~ update ~ for ~ every ~ j=0,\cdots,n) \rbrace$|
 
 Comparing univariate gradient descent (left) and multivariate gradient descent (right). Since we introduced$ ~ x_0^{(i)}=1$,so the first two terms,$\theta_0$ and $\theta_1$ of multivariate gradient descent are the same as univariate gradient descent.  
-photo2  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/2.png)    
 ## Gradient Descent in Practice I - Feature Scaling
 In the multi-dimensional feature problem, to help the gradient descent algorithm converge faster, the features need to have a similar scale, which requires us to perform feature scaling(特征缩放).  
 Assuming two features, the value of house size is$ ~ 0-2000$, and the amount of rooms is $0-5$, the corresponding cost function contour map(left image) will be very flat (skewed elliptical shape), and gradient descent requires a lot of iterations to converge.  
 But if we divide house size by 2000 and amount of room by 5,try to scale all features between $-1$ and $1$ as much as possible, then we will get a nearly circular contour map(right image),from which it can be seen that gradient descent requires a few iterations to converge.  
-photo3  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/3.png)   
 The scale doesn‘t have to be -1 to 1, but the range cann’t be very large or very small.for example:  
-photo3   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/4.png)  
 In addition to dividing all feature values by the maximum value of the feature, we can also use the following method for feature scaling.   
 |Normalization|Fomula|
 |---|---|
@@ -51,37 +51,39 @@ In addition to dividing all feature values by the maximum value of the feature, 
 ## Gradient Descent in Practice II - Learning Rate
 To ensure that the gradient descent algorithm works correctly, you can graph the relationship between iterations number and the cost function, and observe when the algorithm tends to converge (left).  
 There are also some methods to automatically test whether to converge or not, such as using a threshold(阈值) $\epsilon$ (right). Because the size of the threshold is difficult to choose, the graph on the left is better.  
-photo  
-As the number of iterations increases, the cost function should tend to decrease. If it rises or rises and falls frequently, it means that$ ~ α$ is obtained too large, which may lead to failing to converge. If $α$ is taken too small, the algorithm will run slowly but still decreasing, and usually converges after many iterations.  
-photo  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/5.png)   
+As the number of iterations increases, the cost function should tend to decrease. If it rises or rises and falls frequently, it means that$ ~ α$ is obtained too large, which may lead to failing to converge. If $α$ is taken too small, the algorithm will run slowly but still decreasing, and usually converges after many iterations.   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/6.png)   
 For learning rate$ ~ \alpha$,you can try to use the following values:  
 $\cdots,0.001,0.003,0.01,0.03,\cdots,1,\cdots$
 ## Features and Polynomial Regression
 ### Create new feature
-You don't have to use existing features, you can create new features, for example: area = length $\times$ width. Then the quadratic function becomes a univariate function.
-photo
+You don't have to use existing features, you can create new features, for example: area = length $\times$ width. Then the quadratic function becomes a univariate function.  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/7.png)   
 ### Polynomial Regression  
 Quadratic equation model: $h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^{2}$  
 Cubic equation model: $h_\theta(x)=\theta_0+\theta_1x_1+\theta_2x_2^{2}+\theta_3x_3^{3}$   
 Because in real life, as the housing area increases, the housing price cann't decrease, and the quadratic curve will firstly rise and then fall. Choose a cubic model, introduce additional variables to replace higher powers, and convert it to a linear regression model.  
-photo  
-In order to fit the curve better, you can also use the square root.  
-photo
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/8.png)     
+In order to fit the curve better, you can also use the square root.   
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/9.png)    
 ## Normal Equation
 ### Normal Equation  
 The idea of normal equation: Assuming that the partial derivative of the cost function$ ~ J(Θ)$ is equal to 0, solve the equation to get the parameter $Θ$ that minimizes the cost function $J(Θ)$. That is, find the lowest point of the curve (the slope of the tangent is 0).  
 In the simplest case, with only one dimension, the cost function is a quadratic curve:  
-photo   
-If there are $n$ features, then $Θ$ is $n+1$\-dimensional. For each term $J(Θ_j)$ of the cost function $J(Θ)$, let its partial derivative be 0. Solve the equation mathematically(从数学上) to get $Θ_j$ that minimizes the cost function $J(Θ_j)$.  
-photo  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/13.png)    
+If there are$ ~ n$ features, then$ ~ Θ$ is$ ~ n+1$\-dimensional.  
+For each term $J(Θ_j)$ of the cost function $J(Θ)$, let its partial derivative be 0.  
+Solve the equation mathematically(从数学上) to get $Θ_j$ that minimizes the cost function $J(Θ_j)$.  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/14.png)    
 ### Solution to Normal Equations  
 $h_\theta(x)=x\Theta=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
 $J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
-Assuming that the training set feature matrix is $X$ (including $x_0$ = 1), and the result is a vector $Y$, the solution $\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}^T$ can be obtained by the formula:  
+Assuming that the training set feature matrix is$ ~ X$ (including$ ~ x_0$ = 1), and the result is a vector$ ~ Y$, the solution$ ~ \Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}^T$ can be obtained by the formula:  
 $\Theta=(X^TX)^{-1}X^TY$  
 $Y=\begin{bmatrix} y^{(1)} \\\ y^{(2)}  \\\ \vdots \\\ y^{(m)}  \end{bmatrix},X=\begin{bmatrix} x_0^{(1)} &x_1^{(1)} &x_2^{(1)} &\cdots &x_n^{(1)} \\\ x_0^{(2)} &x_1^{(2)} &x_2^{(2)} &\cdots &x_n^{(2)}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{(m)} &x_1^{(m)} &x_2^{(m)} &\cdots &x_n^{(m)}\end{bmatrix}$    
 for example:  
-photo  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/12.png)    
 $\Theta=\begin{pmatrix}\begin{bmatrix} 1 &1 &1 &1 \\\ 2104 &1416 &1534 &852 \\\ 5 &3 &3 &2 \\\ 1 &2 &2 &1\\\ 45 &40 &30 &36\end{bmatrix}\times\begin{bmatrix} 1 &2104 &5 &1 &45 \\\ 1 &1416 &3 &2 &40 \\\ 1 &1534 &3 &2 &40\\\ 1 &852 &2 &1 &36\end{bmatrix}\end{pmatrix}^{-1}\times\begin{bmatrix} 1 &1 &1 &1 \\\ 2104 &1416 &1534 &852 \\\ 5 &3 &3 &2 \\\ 1 &2 &2 &1\\\ 45 &40 &30 &36\end{bmatrix}\times \begin{bmatrix} 460 \\\ 232 \\\ 315 \\\ 178\end{bmatrix}$  
 In the normal equation method,feature scaling isn't required.
 ### The Derivation Process of Θ of Normal Equation Solving
@@ -128,5 +130,5 @@ What happens when the matrix$ ~ X^TX$ is irreversible? Irreversible problems rar
 Two situations can lead to irreversibility:
 + There are redundant features, that is, the eigenvalues(特征值) are linearly related (eg: $x_1 = constant \times  x_2$)  
   Solution: Remove redundant features.  
-+ Data size$ ~ m ~ \leq ~ $ Feature dimension $n$ ≤ (eg: 10 samples fit 101 parameters).   
++ Data size$ ~ m$ $\leq$ Feature dimension$ ~ n$(eg: 10 samples fit 101 parameters).   
   Solution: delete features, or use the regularization method in linear algebra.
