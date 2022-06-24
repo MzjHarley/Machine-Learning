@@ -128,5 +128,5 @@ What happens when the matrix$ ~ X^TX$ is irreversible? Irreversible problems rar
 Two situations can lead to irreversibility:
 + There are redundant features, that is, the eigenvalues(特征值) are linearly related (eg: $x_1 = constant \times  x_2$)  
   Solution: Remove redundant features.  
-+ Data size$ ~ m$ Feature dimension $n$ ≤ (eg: 10 samples fit 101 parameters).   
++ Data size$ ~ m ~ \leq ~ $ Feature dimension $n$ ≤ (eg: 10 samples fit 101 parameters).   
   Solution: delete features, or use the regularization method in linear algebra.
