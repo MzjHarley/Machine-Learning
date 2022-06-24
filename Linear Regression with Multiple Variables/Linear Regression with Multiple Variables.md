@@ -69,6 +69,45 @@ In order to fit the curve better, you can also use the square root.
 photo
 ## Normal Equation
 ### Normal Equation  
+The idea of normal equation: Assuming that the partial derivative of the cost function $J(Θ)$ is equal to 0, solve the equation to get the parameter $Θ$ that minimizes the cost function $J(Θ)$. That is, find the lowest point of the curve (the slope of the tangent is 0).  
+In the simplest case, with only one dimension, the cost function is a quadratic curve:  
+photo   
+If there are $n$ features, then $Θ$ is $n+1$\-dimensional. For each term $J(Θ_j)$ of the cost function $J(Θ)$, let its partial derivative be 0. Solve the equation mathematically(从数学上) to get $Θ_j$ that minimizes the cost function $J(Θ_j)$.  
+photo  
 ### Solution to Normal Equations  
+$h_\theta(x)=x\Theta=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
+$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
+Assuming that the training set feature matrix is $​​X$ (including $x_0$ = 1), and the result is a vector $Y$, the solution $\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}^T$ can be obtained by the formula:  
+$\Theta=(X^TX)^{-1}X^TY$  
+$Y=\begin{bmatrix} y^{1} \\\ y^{2}  \\\ \vdots \\\ y^{m}  \end{bmatrix},X=\begin{bmatrix} x_0^{1} &x_1^{1} &x_2^{1} &\cdots &x_n^{1} \\\ x_0^{2} &x_1^{2} &x_2^{2} &\cdots &x_n^{2}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{m} &x_1^{m} &x_2^{m} &\cdots &x_n^{m}\end{bmatrix}$    
+for example:  
+photo  
+$\Theta=\begin{pmatrix}\begin{bmatrix} 1 &1 &1 &1 \\\ 2104 &1416 &1534 &852 \\\ 5 &3 &3 &2 \\\ 1 &2 &2 &1\\\ 45 &40 &30 &36\end{bmatrix}\times\begin{bmatrix} 1 &2104 &5 &1 &45 \\\ 1 &1416 &3 &2 &40 \\\ 1 &1534 &3 &2 &40\\\ 1 &852 &2 &1 &36\end{bmatrix}\end{pmatrix}^{-1}\times\begin{bmatrix} 1 &1 &1 &1 \\\ 2104 &1416 &1534 &852 \\\ 5 &3 &3 &2 \\\ 1 &2 &2 &1\\\ 45 &40 &30 &36\end{bmatrix}\times \begin{bmatrix} 460 \\\ 232 \\\ 315 \\\ 178\end{bmatrix}$  
+In the normal equation method,feature scaling is not required.
+### The Derivation Process of Θ of Normal Equation Solving
+$h_\theta(x)=x\Theta=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
+$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$   
+$\Theta=\begin{bmatrix} \theta_0 \\\ \theta_1\\\ \vdots\\\ \theta_n\end{bmatrix},Y=\begin{bmatrix} y^{(1)} \\\ y^{(2)}  \\\ \vdots \\\ y^{(m)}  \end{bmatrix},X=\begin{bmatrix} x_0^{(1)} &x_1^{(1)} &x_2^{(1)} &\cdots &x_n^{(1)} \\\ x_0^{(2)} &x_1^{(2)} &x_2^{(2)} &\cdots &x_n^{(2)}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{(m)} &x_1^{(m)} &x_2^{(m)} &\cdots &x_n^{(m)}\end{bmatrix}$    
+
+so $J(\Theta)= \frac{1}{2m}(X\Theta-Y)^T(X\Theta-Y)=\frac{1}{2m}((X\Theta)^T-Y^T)(X\Theta-Y)=\frac{1}{2m}(\Theta^TX^T-Y^T)(X\Theta-Y)=\frac{1}{2m}(\Theta^TX^TX\Theta-\Theta^TX^TY-Y^TX\Theta-Y^TY)$.  
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~   
+we need to let $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}\frac{\partial (\Theta^TX^TX\Theta-\Theta^TX^TY-Y^TX\Theta-Y^TY)}{\partial \Theta}=\frac{1}{2m}(\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}-\frac{\partial (\Theta^TX^TY)}{\partial \Theta}-\frac{\partial (Y^TX\Theta)}{\partial \Theta}-\frac{\partial(Y^TY)}{\partial \Theta})=0$ to get $\Theta$.  
+Now we need to solve $\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta},\frac{\partial (\Theta^TX^TY)}{\partial \Theta},\frac{\partial (Y^TX\Theta)}{\partial \Theta},\frac{\partial(Y^TY)}{\partial \Theta}$.  
+$\frac{\partial(Y^TY)}{\partial \Theta}=0$  
+
+$\frac{\partial (Y^TX\Theta)}{\partial \Theta}=\begin{bmatrix} \frac{\partial (Y^TX\Theta)}{\partial \theta_0}\\\ \vdots\\\ \frac{\partial (Y^TX\Theta)}{\partial \theta_n}\end{bmatrix}=\begin{bmatrix} x_0^{(1)}y^{(1)}+ \cdots+x_0^{(m)}y^{(m)}\\\ \vdots \\\ x_n^{(1)}y^{(1)}+ \cdots+x_n^{(m)}y^{(m)}\end{bmatrix}=X^TY$  
+
+$\frac{\partial (\Theta^TX^TY)}{\partial \Theta}=\begin{bmatrix} \frac{\partial (\Theta^TX^TY)}{\partial \theta_0}\\\ \vdots\\\ \frac{\partial (\Theta^TX^TY)}{\partial \theta_n}\end{bmatrix}=\begin{bmatrix} x_0^{(1)}y^{(1)}+ \cdots+x_0^{(m)}y^{(m)}\\\ \vdots \\\ x_n^{(1)}y^{(1)}+ \cdots+x_n^{(m)}y^{(m)}\end{bmatrix}=X^TY$  
+
+$\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}=2X^TX\Theta$,here we use Scalar(标量) to Vector Derivation Fomula：$\frac{\partial (x^TAx)}{\partial x}=2Ax$,and you can also compute it directly.  
+Now we substitute the values ​​of $\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta},\frac{\partial (\Theta^TX^TY)}{\partial \Theta},\frac{\partial (Y^TX\Theta)}{\partial \Theta},\frac{\partial(Y^TY)}{\partial \Theta}$ into the normal equation
+ $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}(\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}-\frac{\partial (\Theta^TX^TY)}{\partial \Theta}-\frac{\partial (Y^TX\Theta)}{\partial \Theta}-\frac{\partial(Y^TY)}{\partial \Theta})=0.$ 
+ So $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}(2X^TX\Theta-X^TY-X^TY-0)=\frac{1}{2m}(2X^TX\Theta-2X^TY)=\frac{1}{m}(X^TX\Theta-X^TY)=0$  
+ Then we need to solve $\frac{1}{m}(X^TX\Theta-X^TY)=0$ to get $\Theta$.  
+$\frac{1}{m}(X^TX\Theta-X^TY)=0$  
+$X^TX\Theta-X^TY=0$  
+$X^TX\Theta=X^TY$  
+$(X^TX)^{-1}X^TX\Theta=(X^TX)^{-1}X^TY$  
+$\Theta=(X^TX)^{-1}X^TY$
 ### The Derivation Process of Θ of Normal Equation Solving
 ## Normal Equation Noninvertibility
