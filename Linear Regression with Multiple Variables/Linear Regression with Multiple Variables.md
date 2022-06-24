@@ -98,21 +98,23 @@ we need to let $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}\frac{\pa
   
 Now we need to solve $\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta},\frac{\partial (\Theta^TX^TY)}{\partial \Theta},\frac{\partial (Y^TX\Theta)}{\partial \Theta},\frac{\partial(Y^TY)}{\partial \Theta}$.   
   
-$\frac{\partial(Y^TY)}{\partial \Theta}=0$  
+$\frac{\partial(Y^TY)}{\partial \Theta} ~ ~ ~ =0$  
 
-$\frac{\partial (Y^TX\Theta)}{\partial \Theta}=\begin{bmatrix} \frac{\partial (Y^TX\Theta)}{\partial \theta_0}\\\ \vdots\\\ \frac{\partial (Y^TX\Theta)}{\partial \theta_n}\end{bmatrix}=\begin{bmatrix} x_0^{(1)}y^{(1)}+ \cdots+x_0^{(m)}y^{(m)}\\\ \vdots \\\ x_n^{(1)}y^{(1)}+ \cdots+x_n^{(m)}y^{(m)}\end{bmatrix}=X^TY$  
+$\frac{\partial (Y^TX\Theta)}{\partial \Theta} ~ =\begin{bmatrix} \frac{\partial (Y^TX\Theta)}{\partial \theta_0}\\\ \vdots\\\ \frac{\partial (Y^TX\Theta)}{\partial \theta_n}\end{bmatrix} ~ =\begin{bmatrix} x_0^{(1)}y^{(1)}+ \cdots+x_0^{(m)}y^{(m)}\\\ \vdots \\\ x_n^{(1)}y^{(1)}+ \cdots+x_n^{(m)}y^{(m)}\end{bmatrix}=X^TY$  
 
 $\frac{\partial (\Theta^TX^TY)}{\partial \Theta}=\begin{bmatrix} \frac{\partial (\Theta^TX^TY)}{\partial \theta_0}\\\ \vdots\\\ \frac{\partial (\Theta^TX^TY)}{\partial \theta_n}\end{bmatrix}=\begin{bmatrix} x_0^{(1)}y^{(1)}+ \cdots+x_0^{(m)}y^{(m)}\\\ \vdots \\\ x_n^{(1)}y^{(1)}+ \cdots+x_n^{(m)}y^{(m)}\end{bmatrix}=X^TY$  
 
 $\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}=2X^TX\Theta$,here we use Scalar(标量) to Vector Derivation Fomula：$\frac{\partial (x^TAx)}{\partial x}=2Ax$,and you can also compute it directly.  
-Now we substitute the values ​​of $\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta},\frac{\partial (\Theta^TX^TY)}{\partial \Theta},\frac{\partial (Y^TX\Theta)}{\partial \Theta},\frac{\partial(Y^TY)}{\partial \Theta}$ into the normal equation
- $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}(\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}-\frac{\partial (\Theta^TX^TY)}{\partial \Theta}-\frac{\partial (Y^TX\Theta)}{\partial \Theta}-\frac{\partial(Y^TY)}{\partial \Theta})=0.$ 
- So $\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}(2X^TX\Theta-X^TY-X^TY-0)=\frac{1}{2m}(2X^TX\Theta-2X^TY)=\frac{1}{m}(X^TX\Theta-X^TY)=0$  
- Then we need to solve $\frac{1}{m}(X^TX\Theta-X^TY)=0$ to get $\Theta$.  
+  
+Now we substitute the values of$ ~ \frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta},\frac{\partial (\Theta^TX^TY)}{\partial \Theta},\frac{\partial (Y^TX\Theta)}{\partial \Theta},\frac{\partial(Y^TY)}{\partial \Theta}$ into the normal equation$ ~ \frac{\partial J(\Theta)}{\partial \Theta}=0$.  
+  
+$\frac{\partial J(\Theta)}{\partial \Theta}=\frac{1}{2m}(\frac{\partial (\Theta^TX^TX\Theta)}{\partial \Theta}-\frac{\partial (\Theta^TX^TY)}{\partial \Theta}-\frac{\partial (Y^TX\Theta)}{\partial \Theta}-\frac{\partial(Y^TY)}{\partial \Theta})=\frac{1}{2m}(2X^TX\Theta-X^TY-X^TY-0)=\frac{1}{2m}(2X^TX\Theta-2X^TY)=\frac{1}{m}(X^TX\Theta-X^TY)=0$    
+   
+ Then we need to solve$ ~ \frac{1}{m}(X^TX\Theta-X^TY)=0$ to get $\Theta$.  
+   
 $\frac{1}{m}(X^TX\Theta-X^TY)=0$  
-$X^TX\Theta-X^TY=0$  
-$X^TX\Theta=X^TY$  
-$(X^TX)^{-1}X^TX\Theta=(X^TX)^{-1}X^TY$  
-$\Theta=(X^TX)^{-1}X^TY$
-### The Derivation Process of Θ of Normal Equation Solving
+$ ~ ~ ~ ~ ~ ~ ~ X^TX\Theta-X^TY=0$  
+$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ X^TX\Theta=X^TY$  
+$ ~ ~ ~ ~ (X^TX)^{-1}X^TX\Theta=(X^TX)^{-1}X^TY$  
+$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ \Theta=(X^TX)^{-1}X^TY$
 ## Normal Equation Noninvertibility
