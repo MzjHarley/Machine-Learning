@@ -136,13 +136,13 @@ $J(θ_0,θ_1)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$
 Using the gradient descent method for the previous linear regression problem, the key is to find the derivative of the cost function $J(θ)$
 $\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
 $ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})\frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})\]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$  
+$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}\]$  
 when$ ~ j=0$,$\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
-when$ ~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$.  
+when$ ~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_1^{(i)}\]$.  
 Bring the above two derivatives into the gradient descent algorithm to replace the original $\frac{\partial}{\partial{θ_j}}J(θ)$,the gradient descent algorithm becomes:  
 $repeat ~ until ~ convergence \lbrace$  
 $θ_0:=θ_0-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$  
-$θ_1:=θ_1-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x^{(i)}\]$  
+$θ_1:=θ_1-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_1^{(i)}\]$  
 $\rbrace$  
 Although gradient descent is generally susceptible(受影响的) to local minimum, the optimization problem we propose in linear regression has only one global optimal solution and no other local optimal solutions, and the cost function is a convex(凸的) quadratic function. Therefore, gradient descent always converges to a global minimum (assuming the learning rate α is not too large).
 ## batch gradient descent(批处理梯度下降)
