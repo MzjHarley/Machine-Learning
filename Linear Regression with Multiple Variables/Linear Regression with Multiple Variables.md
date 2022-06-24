@@ -17,10 +17,10 @@ There are$ ~ n+1$ parameters and $n$ variables in this formula.
 In order to simplify the formula,$x_0=1$ is introduced, and the formula is transformed into:  
 $h_\theta(x)=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
 At this time, the parameter$ ~ \Theta$ in the model is an$ ~ n+1$-dimensional vector, any training instance is also an $n+1$-dimensional vector, and the dimension of the feature matrix $X$ is $m\times(n+1)$.  
-$\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix},x^{(i)}=\begin{bmatrix} x_0^{i} &x_1^{i} &x_2^{i} &\cdots &x_n^{i}  \end{bmatrix},X=\begin{bmatrix} x_0^{1} &x_1^{1} &x_2^{1} &\cdots &x_n^{1} \\\ x_0^{2} &x_1^{2} &x_2^{2} &\cdots &x_n^{2}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{m} &x_1^{m} &x_2^{m} &\cdots &x_n^{m}\end{bmatrix}$  
+$\Theta=\begin{bmatrix} \theta_0 \\\ \theta_1 \\\ \theta_2 \\\ \vdots \\\ \theta_n \end{bmatrix},x^{(i)}=\begin{bmatrix} x_0^{i} &x_1^{i} &x_2^{i} &\cdots &x_n^{i}  \end{bmatrix},X=\begin{bmatrix} x_0^{1} &x_1^{1} &x_2^{1} &\cdots &x_n^{1} \\\ x_0^{2} &x_1^{2} &x_2^{2} &\cdots &x_n^{2}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{m} &x_1^{m} &x_2^{m} &\cdots &x_n^{m}\end{bmatrix}$  
 The hypothesis function $h$ can be simplified as follows:  
-when inputing$ ~ x$,$ ~ h_\theta(x)= ~ x\Theta^T$.  
-when inputing$ ~ X$,$ ~ h_\theta(X)= ~ X\Theta^T$.
+when inputing$ ~ x$,$ ~ h_\theta(x)= ~ x\Theta$.  
+when inputing$ ~ X$,$ ~ h_\theta(X)= ~ X\Theta$.
 ## Gradient Descent for Multiple Variables
 In linear regression with multiple variables, define the cost function $J(Θ)$ as follows:  
 $J(θ_0,θ_1,\cdots,\theta_n)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
@@ -28,8 +28,8 @@ $J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$
 The multivariate linear regression model is as follows.  To simplify, we add$ ~ x_0 = 1$ , and the parameter$ ~ Θ$ is an$~ n+1$-dimensional vector. The algorithm updates each$ ~ Θ_j$ synchronously(同步地) $(j = 0 ~ to ~ n)$.  
 |Model Element|Formula|
 |---|---|
-|$Hypothesis$|$h_\theta(x)=x\Theta^T=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$|
-|$Parameter$|$\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}$|
+|$Hypothesis$|$h_\theta(x)=x\Theta=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$|
+|$Parameter$|$\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}^T$|
 |$Cost Function$|$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$|
 |$Gradient Descent$|$repeat ~ until ~ convergence \lbrace θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(\Theta) ~ ~ (simultaneously ~ update ~ for ~ every ~ j=0,\cdots,n) \rbrace$|
 
@@ -45,8 +45,8 @@ photo3
 In addition to dividing all feature values by the maximum value of the feature, we can also use the following method for feature scaling.   
 |Normalization|Fomula|
 |---|---|
-|Mean Normalization|$x_i:=\frac{x_i-\mu_i}{s_i}, ~ s_i=(x.max) ~ or ~ (x.max-x.min)$|
-|Most Value Normalization|$x_i:=\frac{x_i-x.min}{x.max-x.min}$|
+|Mean Normalization|$x_i:=\frac{x_i-\mu_i}{s_i}, ~ s_i=(x_i.max) ~ or ~ (x_i.max-x_i.min)$|
+|Most Value Normalization|$x_i:=\frac{x_i-x_i.min}{x_i.max-x_i.min}$|
 |Mean Variance Normalization|$x_i:=\frac{x_i-\mu_i}{\sigma_i}$|
 ## Gradient Descent in Practice II - Learning Rate
 To ensure that the gradient descent algorithm works correctly, you can graph the relationship between iterations number and the cost function, and observe when the algorithm tends to converge (left).  
@@ -69,16 +69,6 @@ In order to fit the curve better, you can also use the square root.
 photo
 ## Normal Equation
 ### Normal Equation  
-The idea of the normal equation: Assuming that the partial derivative of the cost function J(Θ) is equal to 0, solve the equation to get the parameter Θ that minimizes the cost function J(Θ). That is, find the lowest point of the curve (the slope of the tangent is 0).
-In the simplest case, with only one dimension, the cost function is a quadratic curve:  
-photo 
-If there are n features, then Θ is n+1 dimensional. For each term J(Θj) of the cost function J(Θ), let its partial derivative be 0. Solve the equation mathematically to get Θj that minimizes the cost function J(Θj).  
-photo  
-
 ### Solution to Normal Equations  
-$h_\theta(x)=x\Theta^T=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
-$J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
-$\Theta=\begin{bmatrix} \theta_0 &\theta_1 &\theta_2 &\cdots &\theta_n \end{bmatrix}$
-
 ### The Derivation Process of Θ of Normal Equation Solving
 ## Normal Equation Noninvertibility
