@@ -42,7 +42,7 @@ When$ ~ y^{(i)} = 0$, the corresponding curve of $Loss(h_\theta(x^{(i)},y^{(i)})
 The two curves all have the following rules:  
 $Loss(h_\theta(x^{(i)},y^{(i)}))=\begin{cases}0  &,h_\Theta(x^{(i)})=y^{(i)}\\\ \rightarrow \infty&,h_\Theta(x^{(i)})\neq y^{(i)}\end{cases}$
 ## Simplified Cost Function
-$Loss(h_\theta(x^{(i)},y^{(i)}))=\begin{cases}-log(h_\theta(x^{(i)}))  &,y^{(i)}=1\\\ -log(1-h_\theta(x^{(i)}))&,y^{(i)}=0\end{cases}$
+$Loss(h_\theta(x^{(i)},y^{(i)}))=\begin{cases}-log(h_\theta(x^{(i)}))  &,y^{(i)}=1\\\ -log(1-h_\theta(x^{(i)}))&,y^{(i)}=0\end{cases}$  
 Simplify the above two formulas into the following formula:  
 $Loss(h_\theta(x^{(i)},y^{(i)}))=-y^{(i)}log(h_\theta(x^{(i)}))-(1-y^{(i)})log(1-h_\theta(x^{(i)}))$  
 So the complete cost function is as follows:  
@@ -93,7 +93,7 @@ $ ~ ~ ~ ~ θ_j:=θ_j-\frac{\alpha}{m} \sum\limits_{i=1}\limits^{m}[h_\theta(x^{(
 $ ~ ~ ~ ~ j=0,\cdots,n$  
 $\rbrace$   
 The gradient descent algorithm above looks the same as linear regression, but is actually quite different. Because$ ~ h(x)$ was a linear function before,but here $h(x)$ in logistic regression is defined as follows:  
-$h_\theta(x)=\frac{1}{1+e^{-x\Theta}}$  
+$h_\theta(x)=\frac{1}{1+e^{-x ~ \Theta}}$  
 ### A vector implementation of Gradient Descent
 $\Theta:=\Theta-\frac{\alpha}{m} X^T(g(X\Theta)-Y)$  
 $\Theta=\begin{bmatrix}\theta_0\\\ \theta_1\\\ \vdots\\\ \Theta_n\end{bmatrix},Y=\begin{bmatrix} y^{(1)}\\\ y^{(2)}\\\ \vdots\\\ y^{(m)}\end{bmatrix},X=\begin{bmatrix} x_0^{(1)} &x_1^{(1)} &x_2^{(1)} &\cdots &x_n^{(1)} \\\ x_0^{(2)} &x_1^{(2)} &x_2^{(2)} &\cdots &x_n^{(2)}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{(m)} &x_1^{(m)} &x_2^{(m)} &\cdots &x_n^{(m)}\end{bmatrix}$  
@@ -109,4 +109,4 @@ The method how to classify is as follows:
 (3) The final result is the most likely type.  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Logistic%20Regression/7.png)  
 The method is Mathematically expressed as:  
-$Prediction=\underset {i=0,\cdots,n}{max} ~ h_\theta^{(i)}(x)=P(y=i|x;\Theta)$
+$Prediction=\underset {i=0,\cdots,n}{max} ~ \Big(h_\theta^{(i)}(x)=P(y=i|x;\Theta)\Big)$
