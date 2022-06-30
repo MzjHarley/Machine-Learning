@@ -100,7 +100,15 @@ $\Theta=\begin{bmatrix}\theta_0\\\ \theta_1\\\ \vdots\\\ \Theta_n\end{bmatrix},Y
 ## Advanced Optimization
 In addition to gradient descent algorithms, there are some algorithms that are often used to minimize the cost function. These algorithms are more complex and superior, often don't require manual selection of learning rates, and are faster than gradient descent algorithms.  
 These are: Conjugate Gradient(共轭梯度), Local Optimization (Broyden fletcher goldfarb shann, BFGS) and Limited Memory Local Optimization (LBFGS).  
-Suitable for large machine learning problems.
+These algorithms have an intelligent inner loop, called a line search algorithm, that automatically tries different learning rates. Just provide these algorithms with a way to compute the derivative term and the cost function,then it will return the result.Suitable for large machine learning problems.  
+They are too complex and should not be implemented by ourselves, but instead call **Python** methods. For example an unconstrained minimum function [fmin_tnc(func, x0, fprime=None, args=(),* args)](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_tnc.html). It uses one of many advanced optimization algorithms, like an enhanced version of gradient descent, to automatically choose the learning rate and find the best value for $\Theta$.  
+>$scipy.optimize.fmin\underline{ ~ }tnc(func=CostFunction, x0=Theta, fprime=GetPartial, args=(X,Y))$  
+>"""  
+>func：function_name(return value)  
+>x0：array  
+>fprime:function_name(return array)  
+>args:tuple(array)  
+>"""
 ## Multiclass Classification:One-vs-all
 In a multi-classification problem, $y = 0,1,\cdots,n$.  
 The method how to classify is as follows:  
