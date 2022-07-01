@@ -4,11 +4,11 @@
 + just right  
 + overfitting  (poor generalization ability)  
 eg:Linear Regression    
-![contents]()  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Regulation/1.png)  
 eg:Classification Regression    
-![contents]()  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Regulation/2.png)  
   
-So how to solve the problem of overfitting?
+So how to solve the problem of overfitting?  
 (1)reduce the number of features:  
 + Manually select which features to keep.  
 + Use a model selection algorithm.  
@@ -21,8 +21,8 @@ If the linear regression is overfitting, the curve equation is as follows:
 $\theta_0+\theta_1x+\theta_2x^2+\theta_3x^3+\theta_4x^4$  
 If you want to eliminate the influence of high power terms, you can modify the cost function , and set some penalties(乘法) on some parameters to reduce the influence of these parameters to a certain extent:  
 $\underset {\theta}{min}\frac{1}{2m}\sum\limits_{i=1}\limits^{m}(h_\theta(x^{(i)})-y^{(i)})^2+1000\theta_3^2+1000\theta_4^2$  
-To make the cost function tend to 0, the values ​​of$ ~ θ_3$ and $θ_4$ need to be reduced. Because the quadratic term is ≥ 0, the cost function is the smallest when they are 0, which reduces their influence on the hypothesis function, thereby reducing overfitting. This is the idea of ​​regularization.  
-![contents]()   
+To make the cost function tend to 0, the values ​​of$ ~ θ_3$ and $θ_4$ need to be reduced. Because the quadratic term is ≥ 0, the cost function is the smallest when they are 0, which reduces their influence on the hypothesis function, thereby reducing overfitting. This is the idea of regularization.  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Regulation/3.png)   
 In actual use, because you don't know which parameters should be punished. So add a coefficient(系数) $λ$ to all parameters:  
 $\underset {\theta}{min}\frac{1}{2m}(\sum\limits_{i=1}\limits^{m}(h_\theta(x^{(i)})-y^{(i)})^2+\lambda\sum\limits_{j=1}\limits^{n}\theta_j^2)$   
 $ ~ λ$ is called regularization parameter, and the item after $\lambda$ is called regularization term.
@@ -42,7 +42,7 @@ The change of the gradient descent algorithm of regularized linear regression is
 If the Normal Equation method is used, a $(n+1)×(n+1)$-dimensional square matrix L is introduced, and the regularization is as follows:   
 $\Theta=(X^TX+\lambda L)^{-1}X^TY$  
 $L=\begin{bmatrix}0 \\\ ~ &1\\\ ~ &  &1 \\\ ~ &  &  &\ddots\\\ ~ & & & &1\end{bmatrix}$  
-Here I don't give details of derivation process.But I will give $J(\theta)$ and use $ ~ \frac{\partial J(\Theta)}{\partial \Theta}=0$ to get $\theta$.
+Here I don't give details of derivation process.But I will give$ ~ J(\theta)$ and use $\frac{\partial J(\Theta)}{\partial \Theta}=0$ to get$ ~ \Theta$.
 
 $J(\Theta)= \frac{1}{2m}[(X\Theta-Y)^T(X\Theta-Y)+\lambda \Theta_T L \Theta]$  
 $ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{2m}(\Theta^TX^TX\Theta-\Theta^TX^TY-Y^TX\Theta-Y^TY+\lambda \Theta_T L \Theta)$.  
@@ -65,6 +65,6 @@ $Repeat ~ \lbrace$
 $ ~ ~ ~ ~ ~ ~ \theta_0:=\theta_0-\alpha\frac{1}{m}\sum\limits_{i=1}\limits^{m}(h_\theta(x^{(i)})-y^{(i)})x_0^{(i)}$  
 $ ~ ~ ~ ~ ~ ~ \theta_j:=\theta_j-\alpha[\frac{1}{m}\sum\limits_{i=1}\limits^{m}(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}+\frac{\lambda}{m}\theta_j] ~ ~ ~  ~  ~ ~ ~ j\in\lbrace 1,2,\cdots,n\rbrace$  
 $\rbrace$   
-It is still possible to use the $scipy.optimize.fmin\underline{~}tnc()$ function to solve the cost function minimization parameters , but we implement the regularization in the cost function.
+It is still possible to use the $scipy.optimize.fmin\underline{~}tnc()$ function to solve the cost function minimization parameters , but we implement the regularization in the cost function.  
 Effect (blue line is before regularization, pink line is after regularization):  
-![contents]()  
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Regulation/4.png)  
