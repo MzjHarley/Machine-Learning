@@ -18,15 +18,15 @@ A bias unit can be added to the input of each layer, usually with a value of 1.
 |$j$ |represents the number of layers.|
 |$i$ |represents the number of elements from top to bottom.|
 |$a_i^{(j)}$ |the$ ~ i^{th}$ activation unit of the $j^{th}$ layer.|
-|$θ^{(j)}$ |the weight matrix that maps the $j^{th}$ layer to the $(j+1)^{th}$ layer.| 
+|$θ^{(j)}$ |the weight matrix that maps the$ ~ j^{th}$ layer to the $(j+1)^{th}$ layer.| 
   
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/5.png)  
 ## Model Representation II
-We call this left-to-right (input$~\rightarrow$activation$\rightarrow$output) algorithm forward propagation.  
+We call this left-to-right (input$ ~ \rightarrow$ activation $\rightarrow$ output) algorithm forward propagation.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/6.png)  
-If the first few layers are covered, the neural network is like logistic regression, except that we change the input vector $[x_1\sim x_3]$ in logistic regression into $[a_1^{(2)}\sim a_3^{(2)}]$ of the middle layer, that is  
-$h_\theta(x)=g(\theta_0^{(2)}a_0^{(2)}+\theta_1^{(2)}a_1^{(2)}+\theta_2^{(2)}a_2^{(2)}+\theta_3^{(2)}a_3^{(2)})$  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/7.png)  
+If the first few layers are covered, the neural network is like logistic regression, except that we change the input vector $x_1\sim x_3$ in logistic regression into $a_1^{(2)}\sim a_3^{(2)}$ of the middle layer, that is  
+  
+$h_\theta(x)=g(\theta_0^{(2)}a_0^{(2)}+\theta_1^{(2)}a_1^{(2)}+\theta_2^{(2)}a_2^{(2)}+\theta_3^{(2)}a_3^{(2)})$   
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/8.png)  
 ## Multi-class classification
 One-Vs-All method is a generalization of the two-class classification problem to multi-class classification.   
@@ -41,25 +41,24 @@ $S_L$ represents the number of processing units in the last layer.
 The Cost Function previously defined for logistic regression is as follows (the first half represents the distance between the hypothesis and the true value, and the second half is the bias term for regularization of parameters):  
 $J(\Theta) = -\frac{1}{m} \sum\limits_{i=1}\limits^{m} [y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum\limits_{j=1}\limits^{n}\theta_j^2$   
 The cost function of the neural network is the same:  
-$J(\Theta) = -\frac{1}{m} \sum\limits_{i=1}\limits^{m} \sum\limits_{k=1}\limits^{S_L}[y_k^{(i)}log(h_\theta(x^{(i)})_k)+(1-y_k^{(i)})log(1-h_\theta(x^{(i)})_k)]+\frac{\lambda}{2m}\sum\limits_{l=1}\limits^{L-1}\sum\limits_{j=1}\limits^{S_l}\sum\limits_{i=1}\limits^{S_{j+1}}(\theta_{ij}^{(l)})^2$   
-$h_\theta(x^{(i)})$ is the output of $i^{th}$ training example.  
+$J(\Theta) = -\frac{1}{m} \sum\limits_{i=1}\limits^{m} \sum\limits_{k=1}\limits^{S_L}[y_k^{(i)}log({h_\theta(x^{(i)})}_ k)+(1-y_k^{(i)})log(1-h_\theta(x^{(i)})_ k)]+\frac{\lambda}{2m}\sum\limits_{l=1}\limits^{L-1}\sum\limits_{j=1}\limits^{S_l}\sum\limits_{i=1}\limits^{S_{l+1}}(\theta_{ij}^{(l)})^2$  
 $\Theta^{(l)}$'s size is $S_{l+1}\times (S_{l}+1),i\in\lbrace 1,2,\cdots,S_{l+1}\rbrace,j\in\lbrace 0,1,\cdots,S_{l}\rbrace$  
 Here we don't normalize bias unit's parameter $\theta_{i0}$.    
 ## Back-propagation Algorithm
-To minimize $J(Θ)$,  $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$are required.  
+To minimize $J(Θ),\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$ are required.  
 A backpropagation algorithm is used: first calculate the error$ ~ \delta^{(L)}$ of the last layer, and then reverse (to the left) to find the error $\delta^{(l)}$ of each layer until the penultimate(倒数第二的) layer (the first layer is the input variable, which doesn't exist error).  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/10.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/11.png)  
 For one training example$(x,y)$,the cost function is as follows:  
-$J(\Theta)'=-\sum\limits_{k=1}\limits^{S_L}[y_k ~ log(a^{(4)}_k)+(1-y_k)log(1-a_k^{(4)})]$   
-Here we don't need to normalize the $J(\theta)'$,because regularization is the last things to do,but here we just compute one training example's cost not all examples.
+$J(\Theta)'=-\sum\limits_{k=1}\limits^{S_L}[y_k^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{ ~ })log(1-a_k^{(4)})]$   
+Here we don't need to normalize the $J(\theta)'$,because regularization is the last things to do,but here we just compute one training example's cost not all examples.  
 For one training example$(x,y)$'s each output unit(Layer=4),the cost function is as follows:  
-$J(\Theta)''=-[y_k ~ log(a^{(4)}_k)+(1-y_k)log(1-a_k^{(4)})],k\in\lbrace 1,\cdots,S_{L}\rbrace$  
-$\delta_k^{(4)}=\frac{\partial J(\theta)''}{\partial z_k^{(4)}}=\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}=(\frac{-y_k}{a_k^{(4)}}+\frac{1-y_k}{1-a_k^{(4)}})* a_k^{(4)}(1-a_k^{(4)})=\frac{a_k^{(4)}-y_k}{a_k^{(4)}(1-a_k^{(4)})}* a_k^{(4)}(1-a_k^{(4)})=a_k^{(4)}-y_k,k\in\lbrace 1,\cdots,S_{L}\rbrace$  
+$J(\Theta)''=-[y_{k}^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{ ~ })log(1-a_k^{(4)})],k\in\lbrace 1,\cdots,S_{L}\rbrace$  
+$\delta_k^{(4)}=\frac{\partial J(\theta)''}{\partial z_k^{(4)}}=\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}=(\frac{-y_k^{ ~ }}{a_k^{(4)}}+\frac{1-y_k^{ ~ }}{1-a_k^{(4)}}) * a_k^{(4)}(1-a_k^{(4)})=\frac{a_k^{(4)}-y_k^{ ~ }}{a_k^{(4)}(1-a_k^{(4)})} * a_k^{(4)}(1-a_k^{(4)})=a_k^{(4)}-y_k^{ ~ },k\in\lbrace 1,\cdots,S_{L}\rbrace$  
 So $\delta^{(4)}=a^{(4)}-y.$  
-$\delta_j^{(3)}=\frac{\partial J(\theta)''}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial J(\theta)''}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\delta_k^{(4)}*\Theta_{kj}^{(3)}* a_j^{(3)}(1-a_j^{(3)})=(\Theta_{:j}^{(3)})^{T} \times\delta^{(4)}*a_j^{(3)}(1-a_j^{(3)}),j\in\lbrace 0,\cdots,S_{3}\rbrace$  
-So $\delta^{(3)}=(\Theta^{(3)})^{T} \times\delta^{(4)}*a^{(3)}*(1-a^{(3)}).$   
-$\delta_i^{(2)}=\frac{\partial J(\theta)''}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\frac{\partial J(\theta)''}{\partial z_j^{(3)}}\bullet \frac{\partial  z_j^{(3)}}{\partial a_i^{(2)}}\bullet \frac{\partial a_i^{(2)}}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\delta_j^{(3)}*\Theta_{ji}^{(2)}* a_i^{(2)}(1-a_i^{(2)})=(\Theta_{:i}^{(2)})^{T} \times\delta^{(3)}*a_i^{(2)}(1-a_i^{(2)}),i\in\lbrace 0,\cdots,S_{2}\rbrace$   
-So $\delta^{(2)}=(\Theta^{(2)})^{T} \times\delta^{(3)}*a^{(2)}*(1-a^{(2)}).$   
+$\delta_j^{(3)}=\frac{\partial J(\theta)''}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial J(\theta)''}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\delta_k^{(4)} * \Theta_{kj}^{(3)} * a_j^{(3)}(1-a_j^{(3)})=(\Theta_{:j}^{(3)})^{T}  \times\delta^{(4)} * a_j^{(3)}(1-a_j^{(3)}),j\in\lbrace 0,\cdots,S_{3}\rbrace$  
+So $\delta^{(3)}=(\Theta^{(3)})^{T} \times\delta^{(4)} * a^{(3)} * (1-a^{(3)}).$   
+$\delta_i^{(2)}=\frac{\partial J(\theta)''}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\frac{\partial J(\theta)''}{\partial z_j^{(3)}}\bullet \frac{\partial  z_j^{(3)}}{\partial a_i^{(2)}}\bullet \frac{\partial a_i^{(2)}}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\delta_j^{(3)} * \Theta_{ji}^{(2)} * a_i^{(2)}(1-a_i^{(2)})=(\Theta_{:i}^{(2)})^{T} \times\delta^{(3)} * a_i^{(2)}(1-a_i^{(2)}),i\in\lbrace 0,\cdots,S_{2}\rbrace$   
+So $\delta^{(2)}=(\Theta^{(2)})^{T} \times\delta^{(3)} * a^{(2)} * (1-a^{(2)}).$   
 With the error, start calculating $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''$.  
 $l$: current layer index. 
 $j$: the index of activation unit of current layer.  
@@ -67,7 +66,7 @@ $i$: the index of activation unit of next layer.
 $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''=\frac{\partial J(\theta)''}{\partial z_{i}^{(l+1)}}\bullet \frac{\partial z_{i}^{(l+1)}}{\partial \theta_{ij}^{(l)}}=\delta_i^{(l+1)}*a_j^{(l)}$  
 
 So the back-propagation algorithm is as follows:
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/11.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/12.png)  
 Then calculate $\frac{\partial}{\partial \theta_{ji}^{(l)}} J(\theta)$, the formula is as follows:  
 $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)=D_{ij}^{(l)}=\begin{cases}\frac{1}{m}\Delta_{ij}^{(l)}+\frac{\lambda}{m}\theta_{ij}^{(l)} ~ ~ ~ &,j \neq0\\\frac{1}{m}\Delta_{ij}^{(l)} ~ ~ ~ &,j =0\end{cases} $
 ## Gradient Test
