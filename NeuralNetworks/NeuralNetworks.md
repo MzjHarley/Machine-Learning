@@ -77,7 +77,7 @@ $Training ~ set \lbrace (x^{(1)},y^{(1)}),cdots,(x^{(m)},y^{(m)})\rbrace$
 $Set ~ \Delta_{ij}^{(l)}=0 ~ for ~ all ~ i,j,l$  
 $For ~ i = 1 ~ to ~ m:$  
 $ ~ ~ ~ ~ Set ~ a^{(1)}=x^{(i)}$  
-$ ~ ~ ~ ~ Perform ~ Forward-propagation ~ to ~ compute ~ a^{(l)} ~ for ~ l=2,3,\cdots,L$  
+$ ~ ~ ~ ~ Perform ~ Forward Propagation ~ to ~ compute ~ a^{(l)} ~ for ~ l=2,3,\cdots,L$  
 $ ~ ~ ~ ~ Compute ~ \delta^{(L)}=a^{(L)}-y^{(i)}$  
 $ ~ ~ ~ ~ Compute ~ \delta^{(L-1)},\delta^{(L-2)},\cdots,\delta^{(2)}$  
 $ ~ ~ ~ ~ \Delta_{ij}^{(l)}=\Delta_{ij}^{(l)}+\delta_i^{(l+1)} * a_j^{(l)}$  
