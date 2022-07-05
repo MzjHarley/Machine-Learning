@@ -70,7 +70,7 @@ With the error, start calculating $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(
 $l$: current layer index.  
 $j$: the index of activation unit of current layer.   
 $i$: the index of activation unit of next layer.  
-$\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''=\frac{\partial J(\theta)''}{\partial z_{i}^{(l+1)}}\bullet \frac{\partial z_{i}^{(l+1)}}{\partial \theta_{ij}^{(l)}}=\delta_i^{(l+1)}*a_j^{(l)}$  
+$\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''=\frac{\partial J(\theta)''}{\partial z_{i}^{(l+1)}}\bullet \frac{\partial z_{i}^{(l+1)}}{\partial \theta_{ij}^{(l)}}=\delta_i^{(l+1)} * a_j^{(l)}$  
 
 So the back-propagation algorithm is as follows:
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/12.png)  
@@ -79,17 +79,17 @@ $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)=D_{ij}^{(l)}=\begin{cases
 ## Gradient Test
 In order to verify whether the complex model is running properly or not, we use a method called Numerical gradient checking to verify whether the gradient is decreasing or not.  
 For the following$ ~ J(θ)$ graph, take one point on the left and right of the $θ$ point: $(θ+ε), (θ-ε)$, then the derivative (gradient) of the point $θ$ is approximately equal to $\frac{J(Θ+ε)-J(θ-ε)}{2ε}$.  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/12.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/15.png)  
 Therefore, for each $θ$, its derivative can be approximated as:  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/13.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/16.png)  
 Compare this approximation with the derivative of $J(θ)$ obtained at each step in the back-propagation algorithm. If the two results are close, the code is correct, otherwise it is wrong.  
 ## Random Initialization θ
 Previously for logistic regression, we initialized all parameters $θ$ to 0.  
 However, for neural networks, this method is not feasible: if the first layer parameter $θ$ is the same (whether it is 0 or not), it means that the value of all activation units in the second layer will be the same.  
-Usually the initial parameters$ ~ \Theta$ are random values ​​between positive and negative $ε$.  
+Usually the initial parameters$ ~ \Theta$ are random values between positive and negative $ε$.  
 ## Put It Together
 $\bullet$ Choose a neural network(usually, the more neurons in the hidden layer, the better.)  
-![content]()  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/17.png)  
 $\bullet$ Train the neural network:  
 + 1.Random initialization of parameters $\Theta$.  
 + 2.Calculate all $ℎ_\theta(x)$ using the forward propagation method.  
@@ -99,4 +99,4 @@ $\bullet$ Train the neural network:
 + 6.Use an optimization algorithm to minimize the cost function.  
 
 The intuitive representation of the neural network is as follows. Since J() is not a convex function, we can reach a local minimum.  
-![content]()  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/13.png)  
