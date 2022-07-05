@@ -23,21 +23,21 @@ A bias unit can be added to the input of each layer, usually with a value of 1.
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/5.png)  
 ## Model Representation II
 We call this left-to-right (input$ ~ \rightarrow$ activation $\rightarrow$ output) algorithm forward propagation.  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/6.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/22.png)  
 If the first few layers are covered, the neural network is like logistic regression, except that we change the input vector $x_1\sim x_3$ in logistic regression into $a_1^{(2)}\sim a_3^{(2)}$ of the middle layer, that is  
   
 $h_\theta(x)=g(\theta_0^{(2)}a_0^{(2)}+\theta_1^{(2)}a_1^{(2)}+\theta_2^{(2)}a_2^{(2)}+\theta_3^{(2)}a_3^{(2)})$   
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/8.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/23.png)  
 ## Multi-class classification
 One-Vs-All method is a generalization of the two-class classification problem to multi-class classification.   
 Multi-classification with neural networks:  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/9.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/20.png)  
 ## Cost Function
 Suppose there are$ ~ m$ training samples, each containing a set of input $x$ and a set of output signals $y$.  
 $L$ represents the number of layers of the neural network.  
 $S_l$ represents the number of neurons in each layer.  
 $S_L$ represents the number of processing units in the last layer.  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/10.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/21.png)  
 The Cost Function previously defined for logistic regression is as follows (the first half represents the distance between the hypothesis and the true value, and the second half is the bias term for regularization of parameters):  
 $J(\Theta) = -\frac{1}{m} \sum\limits_{i=1}\limits^{m} [y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]+\frac{\lambda}{2m}\sum\limits_{j=1}\limits^{n}\theta_j^2$   
 The cost function of the neural network is the same:  
@@ -47,7 +47,7 @@ Here we don't normalize bias unit's parameter $\theta_{i0}$.
 ## Back-propagation Algorithm
 To minimize $J(Θ),\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$ are required.  
 A backpropagation algorithm is used: first calculate the error$ ~ \delta^{(L)}$ of the last layer, and then reverse (to the left) to find the error $\delta^{(l)}$ of each layer until the penultimate(倒数第二的) layer (the first layer is the input variable, which doesn't exist error).  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/11.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/18.png)  
 For one training example$(x,y)$,the cost function is as follows:  
 $J(\Theta)'=-\sum\limits_{k=1}\limits^{S_L}[y_k^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{ ~ })log(1-a_k^{(4)})]$   
 Here we don't need to normalize the $J(\theta)'$,because regularization is the last things to do,but here we just compute one training example's cost not all examples.  
@@ -99,4 +99,4 @@ $\bullet$ Train the neural network:
 + 6.Use an optimization algorithm to minimize the cost function.  
 
 The intuitive representation of the neural network is as follows. Since J() is not a convex function, we can reach a local minimum.  
-![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/13.png)  
+![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/19.png)  
