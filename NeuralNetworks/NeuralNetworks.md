@@ -53,22 +53,29 @@ $J(\Theta)'=-\sum\limits_{k=1}\limits^{S_L}[y_k^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{
 Here we don't need to normalize the $J(\theta)'$,because regularization is the last things to do,but here we just compute one training example's cost not all examples.  
 For one training example$(x,y)$'s each output unit(Layer=4),the cost function is as follows:  
 $J(\Theta)''=-[y_{k}^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{ ~ })log(1-a_k^{(4)})],k\in\lbrace 1,\cdots,S_{L}\rbrace$  
+  
 $\delta_k^{(4)}=\frac{\partial J(\theta)''}{\partial z_k^{(4)}}=\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}=(\frac{-y_k^{ ~ }}{a_k^{(4)}}+\frac{1-y_k^{ ~ }}{1-a_k^{(4)}}) * a_k^{(4)}(1-a_k^{(4)})=\frac{a_k^{(4)}-y_k^{ ~ }}{a_k^{(4)}(1-a_k^{(4)})} * a_k^{(4)}(1-a_k^{(4)})=a_k^{(4)}-y_k^{ ~ },k\in\lbrace 1,\cdots,S_{L}\rbrace$  
+  
 So $\delta^{(4)}=a^{(4)}-y.$  
+  
 $\delta_j^{(3)}=\frac{\partial J(\theta)''}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial  J(\theta)''}{\partial a_k^{(4)}}\bullet \frac{\partial a_k^{(4)}}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\frac{\partial J(\theta)''}{\partial z_k^{(4)}}\bullet \frac{\partial  z_k^{(4)}}{\partial a_j^{(3)}}\bullet \frac{\partial a_j^{(3)}}{\partial z_j^{(3)}}=\sum\limits_{k=1}\limits^{S_L}\delta_k^{(4)} * \Theta_{kj}^{(3)} * a_j^{(3)}(1-a_j^{(3)})=(\Theta_{:j}^{(3)})^{T}  \times\delta^{(4)} * a_j^{(3)}(1-a_j^{(3)}),j\in\lbrace 0,\cdots,S_{3}\rbrace$  
+  
 So $\delta^{(3)}=(\Theta^{(3)})^{T} \times\delta^{(4)} * a^{(3)} * (1-a^{(3)}).$   
+  
 $\delta_i^{(2)}=\frac{\partial J(\theta)''}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\frac{\partial J(\theta)''}{\partial z_j^{(3)}}\bullet \frac{\partial  z_j^{(3)}}{\partial a_i^{(2)}}\bullet \frac{\partial a_i^{(2)}}{\partial z_i^{(2)}}=\sum\limits_{j=1}\limits^{S_3}\delta_j^{(3)} * \Theta_{ji}^{(2)} * a_i^{(2)}(1-a_i^{(2)})=(\Theta_{:i}^{(2)})^{T} \times\delta^{(3)} * a_i^{(2)}(1-a_i^{(2)}),i\in\lbrace 0,\cdots,S_{2}\rbrace$   
+  
 So $\delta^{(2)}=(\Theta^{(2)})^{T} \times\delta^{(3)} * a^{(2)} * (1-a^{(2)}).$   
-With the error, start calculating $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''$.  
-$l$: current layer index. 
-$j$: the index of activation unit of current layer.  
+  
+With the error, start calculating $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''$.   
+$l$: current layer index.  
+$j$: the index of activation unit of current layer.   
 $i$: the index of activation unit of next layer.  
 $\frac{\partial}{\partial \Theta_{ij}^{(l)}}J(\theta)''=\frac{\partial J(\theta)''}{\partial z_{i}^{(l+1)}}\bullet \frac{\partial z_{i}^{(l+1)}}{\partial \theta_{ij}^{(l)}}=\delta_i^{(l+1)}*a_j^{(l)}$  
 
 So the back-propagation algorithm is as follows:
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/12.png)  
-Then calculate $\frac{\partial}{\partial \theta_{ji}^{(l)}} J(\theta)$, the formula is as follows:  
-$\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)=D_{ij}^{(l)}=\begin{cases}\frac{1}{m}\Delta_{ij}^{(l)}+\frac{\lambda}{m}\theta_{ij}^{(l)} ~ ~ ~ &,j \neq0\\\frac{1}{m}\Delta_{ij}^{(l)} ~ ~ ~ &,j =0\end{cases} $
+Then calculate $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$, the formula is as follows:  
+$\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)=D_{ij}^{(l)}=\begin{cases}\frac{1}{m}\Delta_{ij}^{(l)}+\frac{\lambda}{m}\theta_{ij}^{(l)} ~ ~ ~ &,j \neq0\\\  \frac{1}{m}\Delta_{ij}^{(l)} ~ ~ ~ &,j =0\end{cases} $
 ## Gradient Test
 In order to verify whether the complex model is running properly or not, we use a method called Numerical gradient checking to verify whether the gradient is decreasing or not.  
 For the following$ ~ J(θ)$ graph, take one point on the left and right of the $θ$ point: $(θ+ε), (θ-ε)$, then the derivative (gradient) of the point $θ$ is approximately equal to $\frac{J(Θ+ε)-J(θ-ε)}{2ε}$.  
