@@ -106,5 +106,5 @@ $\bullet$ Train the neural network:
 + 5.Using numerical methods to test these partial derivatives.  
 + 6.Use an optimization algorithm to minimize the cost function.  
 
-The intuitive representation of the neural network is as follows. Since J() is not a convex function, we can reach a local minimum.  
+The intuitive representation of the neural network is as follows. Since $J(\Theta)$ is not a convex function, we can reach a local minimum.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/19.png)  
