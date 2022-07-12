@@ -1,4 +1,4 @@
-# Logistic Regression
+# Logistic RegressionRegression
 Although logistic regression has a regression in its name, it is not a regression algorithm.It's a very powerful, perhaps even the most widely used classification algorithm in the world.  
 Feature scaling also works for logistic regression.
 ## Classification
@@ -18,11 +18,11 @@ $g(z)$ Represents Logistic Function, also called Sigmoid Function,its curve is a
 
 $h_\theta(x)=P\lbrace y=1|x;\Theta \rbrace=1-P\lbrace y=0|x;\Theta \rbrace $
 ## Decision Boundary
-The decision boundary is the dividing line that separates the area where$ ~ y = 0$ and $y = 1$.  
+The decision boundary is the dividing line that separates the area where$~ y = 0$ and $y = 1$.  
 According to the sigmoid curve:  
-when$ ~ g(x\Theta) \geq 0.5$,that is $x\Theta \geq 0,y=1.$  
-when$ ~ g(x\Theta) < 0.5$,that is $x\Theta < 0,y=0.$  
-So the curve that$ ~ x\Theta=0$ represents is the $Decision ~ Boundary$.   
+when$~ g(x\Theta) \geq 0.5$,that is $x\Theta \geq 0,y=1.$  
+when$~ g(x\Theta) < 0.5$,that is $x\Theta < 0,y=0.$  
+So the curve that$~ x\Theta=0$ represents is the $Decision ~ Boundary$.   
 Linear decision boundary:  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Logistic%20Regression/2.png)  
 Non-linear Decision Boundary:  
@@ -34,9 +34,9 @@ To fit the parameters $\Theta$ of the logistic regression model, the cost functi
 $J(\Theta) = \frac{1}{m} \sum\limits_{i=1}\limits^{m} Loss(h_\theta(x^{(i)},y^{(i)}))$  
 $Loss(h_\theta(x^{(i)},y^{(i)}))=\begin{cases}-log(h_\theta(x^{(i)}))  &,y^{(i)}=1\\\ -log(1-h_\theta(x^{(i)}))&,y^{(i)}=0\end{cases}$  
   
-When$ ~ y^{(i)} = 1$, the corresponding curve of $Loss(h_\theta(x^{(i)},y^{(i)}))$ is as follows:  
+When$~ y^{(i)} = 1$, the corresponding curve of $Loss(h_\theta(x^{(i)},y^{(i)}))$ is as follows:  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Logistic%20Regression/5.png)  
-When$ ~ y^{(i)} = 0$, the corresponding curve of $Loss(h_\theta(x^{(i)},y^{(i)}))$ is as follows:  
+When$~ y^{(i)} = 0$, the corresponding curve of $Loss(h_\theta(x^{(i)},y^{(i)}))$ is as follows:  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Logistic%20Regression/6.png)  
 
 The two curves all have the following rules:  
@@ -54,45 +54,45 @@ $\Theta=\begin{bmatrix}\theta_0\\\ \theta_1\\\ \vdots\\\ \Theta_n\end{bmatrix},Y
 **gradient descent algorithm:**  
 $repeat ~ until ~ convergence$  
 $\lbrace$  
-$ ~ ~ ~ ~ θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
-$ ~ ~ ~ ~ j=0,\cdots,n$  
+$~ ~ ~ ~ θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
+$~ ~ ~ ~ j=0,\cdots,n$  
 $\rbrace$   
   
 $\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{-1}{m} \sum\limits_{i=1}\limits^{m} [y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}\frac{\partial}{\partial{θ_j}}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[\frac{\partial}{\partial{θ_j}}y^{(i)}log(h_\theta(x^{(i)}))+\frac{\partial}{\partial{θ_j}}(1-y^{(i)})log(1-h_\theta(x^{(i)}))]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{\partial}{\partial{θ_j}}log(h_\theta(x^{(i)}))+(1-y^{(i)})\frac{\partial}{\partial{θ_j}}log(1-h_\theta(x^{(i)}))]$   
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{\frac{\partial}{\partial{θ_j}}h_\theta(x^{(i)})}{h_\theta(x^{(i)})}+(1-y^{(i)})\frac{\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))}{1-h_\theta(x^{(i)})}]$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}\frac{\partial}{\partial{θ_j}}[y^{(i)}log(h_\theta(x^{(i)}))+(1-y^{(i)})log(1-h_\theta(x^{(i)}))]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[\frac{\partial}{\partial{θ_j}}y^{(i)}log(h_\theta(x^{(i)}))+\frac{\partial}{\partial{θ_j}}(1-y^{(i)})log(1-h_\theta(x^{(i)}))]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{\partial}{\partial{θ_j}}log(h_\theta(x^{(i)}))+(1-y^{(i)})\frac{\partial}{\partial{θ_j}}log(1-h_\theta(x^{(i)}))]$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{\frac{\partial}{\partial{θ_j}}h_\theta(x^{(i)})}{h_\theta(x^{(i)})}+(1-y^{(i)})\frac{\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))}{1-h_\theta(x^{(i)})}]$   
   
 Now we need to solve $\frac{\partial}{\partial{θ_j}}h_\theta(x^{(i)}),\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))$   
 $h_\theta(x^{(i)})=g(x^{(i)}\Theta)=\frac{1}{1+e^{-x^{(i)}\Theta}}$  
   
 $\frac{\partial}{\partial{θ_j}}h_\theta(x^{(i)})=\frac{\partial g(x^{(i)}\Theta)}{\partial{(x^{(i)}\Theta)}} \cdot\frac{\partial{(x^{(i)}\Theta)}}{\partial \theta_j}$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{e^{-x^{(i)}\Theta}}{(1+e^{-x^{(i)}\Theta})^2}\cdot x_j^{(i)}$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[\frac{1}{1+e^{-x^{(i)}\Theta}} \cdot\frac{e^{-x^{(i)}\Theta}}{1+e^{-x^{(i)}\Theta}}]\cdot x_j^{(i)}$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[\frac{1}{1+e^{-x^{(i)}\Theta}} \cdot(1-\frac{1}{1+e^{-x^{(i)}\Theta}})]\cdot x_j^{(i)}$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[g(x^{(i)}\Theta) \cdot(1-g(x^{(i)}\Theta))]\cdot x_j^{(i)}$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{e^{-x^{(i)}\Theta}}{(1+e^{-x^{(i)}\Theta})^2}\cdot x_j^{(i)}$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[\frac{1}{1+e^{-x^{(i)}\Theta}} \cdot\frac{e^{-x^{(i)}\Theta}}{1+e^{-x^{(i)}\Theta}}]\cdot x_j^{(i)}$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[\frac{1}{1+e^{-x^{(i)}\Theta}} \cdot(1-\frac{1}{1+e^{-x^{(i)}\Theta}})]\cdot x_j^{(i)}$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =[g(x^{(i)}\Theta) \cdot(1-g(x^{(i)}\Theta))]\cdot x_j^{(i)}$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}$  
   
 The same goes for $\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))$.  
 $\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))=-h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}$   
 
 So $\frac{\partial}{\partial{θ_j}}J(θ)=-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{\frac{\partial}{\partial{θ_j}}h_\theta(x^{(i)})}{h_\theta(x^{(i)})}+(1-y^{(i)})\frac{\frac{\partial}{\partial{θ_j}}(1-h_\theta(x^{(i)}))}{1-h_\theta(x^{(i)})}]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}}{h_\theta(x^{(i)})}+(1-y^{(i)})\frac{-h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}}{1-h_\theta(x^{(i)})}]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}+(1-y^{(i)})(-h_\theta(x^{(i)})) \cdot x_j^{(i)}]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}-(1-y^{(i)})h_\theta(x^{(i)}) \cdot x_j^{(i)}]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[(y^{(i)}-y^{(i)}h_\theta(x^{(i)}))\cdot x_j^{(i)}-(h_\theta(x^{(i)})-y^{(i)}h_\theta(x^{(i)})) \cdot x_j^{(i)}]$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}-y^{(i)}h_\theta(x^{(i)})-h_\theta(x^{(i)})+y^{(i)}h_\theta(x^{(i)})] \cdot x_j^{(i)}$   
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}-h_\theta(x^{(i)})] \cdot x_j^{(i)}$   
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m} \sum\limits_{i=1}\limits^{m}[h_\theta(x^{(i)})-y^{(i)}] \cdot x_j^{(i)}$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\frac{h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}}{h_\theta(x^{(i)})}+(1-y^{(i)})\frac{-h_\theta(x^{(i)}) \cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}}{1-h_\theta(x^{(i)})}]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}+(1-y^{(i)})(-h_\theta(x^{(i)})) \cdot x_j^{(i)}]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}\cdot (1-h_\theta(x^{(i)}))\cdot x_j^{(i)}-(1-y^{(i)})h_\theta(x^{(i)}) \cdot x_j^{(i)}]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[(y^{(i)}-y^{(i)}h_\theta(x^{(i)}))\cdot x_j^{(i)}-(h_\theta(x^{(i)})-y^{(i)}h_\theta(x^{(i)})) \cdot x_j^{(i)}]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}-y^{(i)}h_\theta(x^{(i)})-h_\theta(x^{(i)})+y^{(i)}h_\theta(x^{(i)})] \cdot x_j^{(i)}$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =-\frac{1}{m} \sum\limits_{i=1}\limits^{m}[y^{(i)}-h_\theta(x^{(i)})] \cdot x_j^{(i)}$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m} \sum\limits_{i=1}\limits^{m}[h_\theta(x^{(i)})-y^{(i)}] \cdot x_j^{(i)}$   
 
 **So gradient descent algorithm:**  
 $repeat ~ until ~ convergence$  
 $\lbrace$  
-$ ~ ~ ~ ~ θ_j:=θ_j-\frac{\alpha}{m} \sum\limits_{i=1}\limits^{m}[h_\theta(x^{(i)})-y^{(i)}] \cdot x_j^{(i)}$  
-$ ~ ~ ~ ~ j=0,\cdots,n$  
+$~ ~ ~ ~ θ_j:=θ_j-\frac{\alpha}{m} \sum\limits_{i=1}\limits^{m}[h_\theta(x^{(i)})-y^{(i)}] \cdot x_j^{(i)}$  
+$~ ~ ~ ~ j=0,\cdots,n$  
 $\rbrace$   
-The gradient descent algorithm above looks the same as linear regression, but is actually quite different. Because$ ~ h(x)$ was a linear function before,but here $h(x)$ in logistic regression is defined as follows:  
+The gradient descent algorithm above looks the same as linear regression, but is actually quite different. Because$~ h(x)$ was a linear function before,but here $h(x)$ in logistic regression is defined as follows:  
 $h_\theta(x)=\frac{1}{1+e^{-x ~ \Theta}}$  
 ### A vector implementation of Gradient Descent
 $\Theta:=\Theta-\frac{\alpha}{m} X^T(g(X\Theta)-Y)$  
@@ -113,7 +113,7 @@ They are too complex and should not be implemented by ourselves, but instead cal
 In a multi-classification problem, $y = 0,1,\cdots,n$.  
 The method how to classify is as follows:  
 (1) Split into $n+1$ binary classification problems.  
-(2) For each Classification, predict$ ~ h(x)$ value which represents the likelihood that $y$ is of this type.  
+(2) For each Classification, predict$~ h(x)$ value which represents the likelihood that $y$ is of this type.  
 (3) The final result is the most likely type.  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Logistic%20Regression/7.png)  
 The method is Mathematically expressed as:  
