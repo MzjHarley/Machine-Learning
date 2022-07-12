@@ -133,11 +133,11 @@ $\rbrace$
 **Linear Regression Model:**  
 $h_θ(x)=θ_0+θ_1x$   
 $J(θ_0,θ_1)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$   
-Using the gradient descent method for the previous linear regression problem, the key is to find the derivative of the cost function $J(θ)$
+Using the gradient descent method for the previous linear regression problem, the key is to find the derivative of the cost function $J(θ)$  
 $\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{2m}\sum\limits_{i=1}\limits^m \frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})^2$   
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m [(h_θ(x^{(i)})-y^{(i)}) \frac{\partial}{\partial{θ_j}}h_θ(x^{(i)})]$   
-$ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}\]$  
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{2m}\sum\limits_{i=1}\limits^m \frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})^2$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m [(h_θ(x^{(i)})-y^{(i)}) \frac{\partial}{\partial{θ_j}}h_θ(x^{(i)})]$   
+$~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}\]$  
 when$ ~ j=0$,$\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
 when$ ~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_1^{(i)}\]$.  
 Bring the above two derivatives into the gradient descent algorithm to replace the original $\frac{\partial}{\partial{θ_j}}J(θ)$,the gradient descent algorithm becomes:  
