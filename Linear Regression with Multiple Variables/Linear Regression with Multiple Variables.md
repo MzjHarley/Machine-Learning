@@ -52,9 +52,9 @@ In addition to dividing all feature values by the maximum value of the feature, 
 To ensure that the gradient descent algorithm works correctly, you can graph the relationship between iterations number and the cost function, and observe when the algorithm tends to converge (left).  
 There are also some methods to automatically test whether to converge or not, such as using a threshold(阈值) $\epsilon$ (right). Because the size of the threshold is difficult to choose, the graph on the left is better.  
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/5.png)   
-As the number of iterations increases, the cost function should tend to decrease. If it rises or rises and falls frequently, it means that$ ~ α$ is obtained too large, which may lead to failing to converge. If $α$ is taken too small, the algorithm will run slowly but still decreasing, and usually converges after many iterations.   
+As the number of iterations increases, the cost function should tend to decrease. If it rises or rises and falls frequently, it means that$~ α$ is obtained too large, which may lead to failing to converge. If $α$ is taken too small, the algorithm will run slowly but still decreasing, and usually converges after many iterations.   
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/6.png)   
-For learning rate$ ~ \alpha$,you can try to use the following values:  
+For learning rate$~ \alpha$,you can try to use the following values:  
 $\cdots,0.001,0.003,0.01,0.03,\cdots,1,\cdots$
 ## Features and Polynomial Regression
 ### Create new feature
