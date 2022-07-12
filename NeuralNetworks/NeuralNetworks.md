@@ -10,19 +10,19 @@ Neural network models are built on many neurons, each of which is a learning mod
 The figure below is an example of a neuron that uses a logistic regression model as its own learning model. The parameter $\Theta$ can also be called weights.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/3.png)  
 The neural network model is organized by many logical units according to different levels, and each output variable is the input variable of the next layer.  
-Logic unit: input vector$ ~ X$ (input layer), intermediate layer $a^{(j)}$ (hidden layer), output layer $h(x)$.  
+Logic unit: input vector$~ X$ (input layer), intermediate layer $a^{(j)}$ (hidden layer), output layer $h(x)$.  
 A bias unit can be added to the input of each layer, usually with a value of 1.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/4.png)  
 |parameter|meaning|
 |---|---|
 |$j$ |represents the number of layers.|
 |$i$ |represents the number of elements from top to bottom.|
-|$a_i^{(j)}$ |the$ ~ i^{th}$ activation unit of the $j^{th}$ layer.|
-|$θ^{(j)}$ |the weight matrix that maps the$ ~ j^{th}$ layer to the $(j+1)^{th}$ layer.| 
+|$a_i^{(j)}$ |the$~ i^{th}$ activation unit of the $j^{th}$ layer.|
+|$θ^{(j)}$ |the weight matrix that maps the$~ j^{th}$ layer to the $(j+1)^{th}$ layer.| 
   
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/5.png)  
 ## Model Representation II
-We call this left-to-right (input$ ~ \rightarrow$ activation $\rightarrow$ output) algorithm forward propagation.  
+We call this left-to-right (input$~ \rightarrow$ activation $\rightarrow$ output) algorithm forward propagation.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/22.png)  
 If the first few layers are covered, the neural network is like logistic regression, except that we change the input vector $x_1\sim x_3$ in logistic regression into $a_1^{(2)}\sim a_3^{(2)}$ of the middle layer, that is  
   
@@ -33,7 +33,7 @@ One-Vs-All method is a generalization of the two-class classification problem to
 Multi-classification with neural networks:  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/20.png)  
 ## Cost Function
-Suppose there are$ ~ m$ training samples, each containing a set of input $x$ and a set of output signals $y$.  
+Suppose there are$~ m$ training samples, each containing a set of input $x$ and a set of output signals $y$.  
 $L$ represents the number of layers of the neural network.  
 $S_l$ represents the number of neurons in each layer.  
 $S_L$ represents the number of processing units in the last layer.  
@@ -46,7 +46,7 @@ $\Theta^{(l)}$'s size is $S_{l+1}\times (S_{l}+1),i\in\lbrace 1,2,\cdots,S_{l+1}
 Here we don't normalize bias unit's parameter $\theta_{i0}$.    
 ## Back-propagation Algorithm
 To minimize $J(Θ),\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$ are required.  
-A backpropagation algorithm is used: first calculate the error$ ~ \delta^{(L)}$ of the last layer, and then reverse (to the left) to find the error $\delta^{(l)}$ of each layer until the penultimate(倒数第二的) layer (the first layer is the input variable, which doesn't exist error).  
+A backpropagation algorithm is used: first calculate the error$~ \delta^{(L)}$ of the last layer, and then reverse (to the left) to find the error $\delta^{(l)}$ of each layer until the penultimate(倒数第二的) layer (the first layer is the input variable, which doesn't exist error).  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/18.png)  
 For one training example$(x,y)$,the cost function is as follows:  
 $J(\Theta)'=-\sum\limits_{k=1}\limits^{S_L}[y_k^{ ~ } ~ log(a^{(4)}_ k)+(1-y_k^{ ~ })log(1-a_k^{(4)})]$   
@@ -76,17 +76,17 @@ So the back-propagation algorithm is as follows:
 $Training ~ set \lbrace (x^{(1)},y^{(1)}),cdots,(x^{(m)},y^{(m)})\rbrace$    
 $Set ~ \Delta_{ij}^{(l)}=0 ~ for ~ all ~ i,j,l$  
 $For ~ i = 1 ~ to ~ m:$  
-$ ~ ~ ~ ~ Set ~ a^{(1)}=x^{(i)}$  
-$ ~ ~ ~ ~ Perform ~ Forward Propagation ~ to ~ compute ~ a^{(l)} ~ for ~ l=2,3,\cdots,L$  
-$ ~ ~ ~ ~ Compute ~ \delta^{(L)}=a^{(L)}-y^{(i)}$  
-$ ~ ~ ~ ~ Compute ~ \delta^{(L-1)},\delta^{(L-2)},\cdots,\delta^{(2)}$  
-$ ~ ~ ~ ~ \Delta_{ij}^{(l)}=\Delta_{ij}^{(l)}+\delta_i^{(l+1)} * a_j^{(l)}$  
+$~ ~ ~ ~ Set ~ a^{(1)}=x^{(i)}$  
+$~ ~ ~ ~ Perform ~ Forward Propagation ~ to ~ compute ~ a^{(l)} ~ for ~ l=2,3,\cdots,L$  
+$~ ~ ~ ~ Compute ~ \delta^{(L)}=a^{(L)}-y^{(i)}$  
+$~ ~ ~ ~ Compute ~ \delta^{(L-1)},\delta^{(L-2)},\cdots,\delta^{(2)}$  
+$~ ~ ~ ~ \Delta_{ij}^{(l)}=\Delta_{ij}^{(l)}+\delta_i^{(l+1)} * a_j^{(l)}$  
 
 Then calculate $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)$, the formula is as follows:  
 $\frac{\partial}{\partial \theta_{ij}^{(l)}} J(\theta)=D_{ij}^{(l)}=\begin{cases}\frac{1}{m}\Delta_{ij}^{(l)}+\frac{\lambda}{m}\theta_{ij}^{(l)} ~ ~ ~ &,j \neq0\\\  \frac{1}{m}\Delta_{ij}^{(l)} ~ ~ ~ &,j =0\end{cases} $
 ## Gradient Test
 In order to verify whether the complex model is running properly or not, we use a method called Numerical gradient checking to verify whether the gradient is decreasing or not.  
-For the following$ ~ J(θ)$ graph, take one point on the left and right of the$ ~ θ$ point:$ ~ (θ+ε), (θ-ε)$, then the derivative (gradient) of the point$ ~ θ$ is approximately equal to$ ~ \frac{J(Θ+ε)-J(θ-ε)}{2ε}$.  
+For the following$~ J(θ)$ graph, take one point on the left and right of the$~ θ$ point:$~ (θ+ε), (θ-ε)$, then the derivative (gradient) of the point$~ θ$ is approximately equal to$~ \frac{J(Θ+ε)-J(θ-ε)}{2ε}$.  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/15.png)  
 Therefore, for each $θ$, its derivative can be approximated as:  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/16.png)  
@@ -94,7 +94,7 @@ Compare this approximation with the derivative of $J(θ)$ obtained at each step 
 ## Random Initialization θ
 Previously for logistic regression, we initialized all parameters $θ$ to 0.  
 However, for neural networks, this method is not feasible: if the first layer parameter $θ$ is the same (whether it is 0 or not), it means that the value of all activation units in the second layer will be the same.  
-Usually the initial parameters$ ~ \Theta$ are random values between positive and negative $ε$.  
+Usually the initial parameters$~ \Theta$ are random values between positive and negative $ε$.  
 ## Put It Together
 $\bullet$ Choose a neural network(usually, the more neurons in the hidden layer, the better.)  
 ![content](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/NeuralNetworks/17.png)  
