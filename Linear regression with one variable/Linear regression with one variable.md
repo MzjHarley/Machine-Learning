@@ -59,12 +59,12 @@ $θ_0,θ_1$
 $J(θ_0,θ_1)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
 **Goal:**   
 $\underset{(θ_0,θ_1)}{minimize} ~~~ J(θ_0,θ_1)$      
-let$ ~ θ_0=0$,the cost function reduces to a function only about $θ_1:h_θ(x)=θ_1x$.  
+let$~ θ_0=0$,the cost function reduces to a function only about $θ_1:h_θ(x)=θ_1x$.  
 In the example below, the coordinates of the three data points are$~(1,1),(2,2),(3,3)$. When$~θ_0=0$ and only $θ_1$ is changed, the cost function is a quadratic curve.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/35.png)
 ## Intuitive understanding of the cost function II
-When both$ ~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ in three-dimensional space is as follows:  
+When both$~ θ_0$ and $θ_1$ change, the graph of cost function $J(θ_0,θ_1)$ in three-dimensional space is as follows:  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/36.png)  
 
@@ -81,7 +81,7 @@ The value in the figure below is located at the lowest point of the 3D graph, an
 ------------------------------------------------------------------------------------------------------
 # Gradient descent
 ## Local optimum
-There is already a cost function, and our goal is to minimize it. Normally, start with$ ~ θ_0=0,θ_1=0$, adjust $θ_0, θ_1$, and end at the minimum value of $J(θ_0, θ_1)$.  
+There is already a cost function, and our goal is to minimize it. Normally, start with$~ θ_0=0,θ_1=0$, adjust $θ_0, θ_1$, and end at the minimum value of $J(θ_0, θ_1)$.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/40.png)  
 
@@ -89,7 +89,7 @@ In the example below,$θ_0$ and $θ_1$ don't start at 0,0. When selecting two di
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/41.png)![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/42.png)  
 ## Gradient descent algorithm
-The gradient descent algorithm assigns a value to$ ~ θ$, so that $J(θ)$ proceeds in the fastest direction of gradient descent, and iterates continuously until a local minimum value is finally obtained, that is, convergence(收敛). The gradient descent algorithm is not only used for linear regression, but can be used to minimize any cost function $J$. The formula is as follows.  
+The gradient descent algorithm assigns a value to$~ θ$, so that $J(θ)$ proceeds in the fastest direction of gradient descent, and iterates continuously until a local minimum value is finally obtained, that is, convergence(收敛). The gradient descent algorithm is not only used for linear regression, but can be used to minimize any cost function $J$. The formula is as follows.  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
 $\alpha$ is learning rate,which determines how big a step is taken down in the direction that reduces the cost function the most.  
 In the gradient descent algorithm, the two parameters are updated simultaneously(同步地) (bottom left). If it is a non-simultaneous update (bottom right), it is not gradient descent.  
@@ -100,8 +100,8 @@ In the gradient descent algorithm, the two parameters are updated simultaneously
 ### Update rule of Gradient descent algorithm
 The gradient descent algorithm is as follows.  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
-The purpose of derivation(求导) can basically be said to take the tangent of the red point, that is, the red line. Since the slope(斜率) on the right side of the curve is positive, the derivative term is positive. Therefore,$ ~ θ_1$ minus a positive number multiplied by $α$, the value becomes smaller.
-The slope on the left side of the curve is negative and the derivative term is negative. Therefore,$ ~ θ_1$ minus a negative number multiplied by $α$, the value becomes larger.  
+The purpose of derivation(求导) can basically be said to take the tangent of the red point, that is, the red line. Since the slope(斜率) on the right side of the curve is positive, the derivative term is positive. Therefore,$~ θ_1$ minus a positive number multiplied by $α$, the value becomes smaller.
+The slope on the left side of the curve is negative and the derivative term is negative. Therefore,$~ θ_1$ minus a negative number multiplied by $α$, the value becomes larger.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/44.png)  
 
@@ -112,7 +112,7 @@ If $α$ is too large, the algorithm may go over the lowest point. Crossed the lo
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/45.png)   
 
 ### without adjusting α,J(θ) can also converge  
-Suppose$ ~ θ_1$ is initialized at the local minimum. A derivative of 0 will make $θ_1$ no longer change, and won't change the value of the parameter.  
+Suppose$~ θ_1$ is initialized at the local minimum. A derivative of 0 will make $θ_1$ no longer change, and won't change the value of the parameter.  
 It also explains why gradient descent can converge to a local minimum even when the learning rate $α$ remains constant.  
 
 ![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20regression%20with%20one%20variable/46.png)  
@@ -124,7 +124,7 @@ Why is it possible to reach the local optimum without adjusting $α$? Because af
 ------------------------------------------------------------------------------------------------------
 # Gradient Descent For Linear Regression
 ## Gradient descent and linear regression combined
-Combining the squared error function$ ~ h(x)$ with the gradient descent method and the squared cost function $J(Θ)$, we get the first machine learning algorithm, that is Linear Regression.  
+Combining the squared error function$~ h(x)$ with the gradient descent method and the squared cost function $J(Θ)$, we get the first machine learning algorithm, that is Linear Regression.  
 **gradient descent algorithm:**  
 $repeat ~ until ~ convergence \lbrace$  
 $θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(θ)$  
@@ -138,8 +138,8 @@ $\frac{\partial}{\partial{θ_j}}J(θ)=\frac{\partial}{\partial{θ_j}}\frac{1}{2m
 $~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{2m}\sum\limits_{i=1}\limits^m \frac{\partial}{\partial{θ_j}}(h_θ(x^{(i)})-y^{(i)})^2$   
 $~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m [(h_θ(x^{(i)})-y^{(i)}) \frac{\partial}{\partial{θ_j}}h_θ(x^{(i)})]$   
 $~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ =\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_j^{(i)}\]$  
-when$ ~ j=0$,$\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
-when$ ~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_1^{(i)}\]$.  
+when$~ j=0$,$\frac{\partial}{\partial{θ_j}}J(θ_0)=\frac{1}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$.  
+when$~ j=1$,$\frac{\partial}{\partial{θ_j}}J(θ_1)=\frac{1}{m}\sum\limits_{i=1}\limits^m\[(h_θ(x^{(i)})-y^{(i)})x_1^{(i)}\]$.  
 Bring the above two derivatives into the gradient descent algorithm to replace the original $\frac{\partial}{\partial{θ_j}}J(θ)$,the gradient descent algorithm becomes:  
 $repeat ~ until ~ convergence \lbrace$  
 $θ_0:=θ_0-\frac{\alpha}{m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})$  
