@@ -25,7 +25,7 @@ when inputing$~ X$,$~ h_\theta(X)= ~ X\Theta$.
 In linear regression with multiple variables, define the cost function $J(Θ)$ as follows:  
 $J(θ_0,θ_1,\cdots,\theta_n)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$  
 $J(\Theta)=\frac{1}{2m}\sum\limits_{i=1}\limits^m(h_θ(x^{(i)})-y^{(i)})^2$   
-The multivariate linear regression model is as follows.  To simplify, we add$~ x_0 = 1$ , and the parameter$ ~ Θ$ is an$~ n+1$-dimensional vector. The algorithm updates each$~ Θ_j$ synchronously(同步地) $(j = 0 ~ to ~ n)$.  
+The multivariate linear regression model is as follows.  To simplify, we add$~ x_0 = 1$ , and the parameter$~ Θ$ is an$~ n+1$-dimensional vector. The algorithm updates each$~ Θ_j$ synchronously(同步地) $(j = 0 ~ to ~ n)$.  
 |Model Element|Formula|
 |---|---|
 |$Hypothesis$|$h_\theta(x)=x\Theta=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$|
