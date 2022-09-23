@@ -17,7 +17,7 @@ There are$~ n+1$ parameters and $n$ variables in this formula.
 In order to simplify the formula,$x_0=1$ is introduced, and the formula is transformed into:  
 $h_\theta(x)=\theta_0x_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_nx_n$  
 At this time, the parameter$~ \Theta$ in the model is an$~ n+1$-dimensional vector, any training instance is also an $n+1$-dimensional vector, and the dimension of the feature matrix $X$ is $m\times(n+1)$.  
-$\Theta=\begin{bmatrix} \theta_0 \\\ \theta_1 \\\ \theta_2 \\\ \vdots \\\ \theta_n \end{bmatrix},x^{(i)}=\begin{bmatrix} x_0^{(i)} &x_1^{(i)} &x_2^{(i)} &\cdots &x_n^{(i)}  \end{bmatrix},X=\begin{bmatrix} x_0^{(1)} &x_1^{(1)} &x_2^{(1)} &\cdots &x_n^{(1)} \\\ x_0^{(2)} &x_1^{(2)} &x_2^{(2)} &\cdots &x_n^{(2)}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{(m)} &x_1^{(m)} &x_2^{(m)} &\cdots &x_n^{(m)}\end{bmatrix}$  
+$\Theta=\begin{bmatrix} \theta_0 \\\ \theta_1 \\\ \theta_2 \\\ \vdots \\\ \theta_n \end{bmatrix},x^{(i)}=\begin{bmatrix} x_0^{(i)} &x_1^{(i)} &x_2^{(i)} &\cdots &x_n^{(i)}  \end{bmatrix},X=\begin{bmatrix} x_0^{(1)} &x_1^{(1)} &x_2^{(1)} &\cdots &x_n^{(1)} \\\ x_0^{(2)} &x_1^{(2)} &x_2^{(2)} &\cdots &x_n^{(2)}\\\ \vdots &\vdots &\vdots &\ddots &\vdots\\\ x_0^{(m)} &x_1^{(m)} &x_2^{(m)} &\cdots &x_n^{(m)}\end{bmatrix}$   
 The hypothesis function $h$ can be simplified as follows:  
 when inputing$~ x$,$~ h_\theta(x)= ~ x\Theta$.  
 when inputing$~ X$,$~ h_\theta(X)= ~ X\Theta$.
