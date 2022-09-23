@@ -34,7 +34,7 @@ The multivariate linear regression model is as follows.  To simplify, we add$~ x
 |$Gradient Descent$|$repeat ~ until ~ convergence \lbrace θ_j:=θ_j-\alpha\frac{\partial}{\partial{θ_j}}J(\Theta) ~ ~ (simultaneously ~ update ~ for ~ every ~ j=0,\cdots,n) \rbrace$|
 
 Comparing univariate gradient descent (left) and multivariate gradient descent (right). Since we introduced$~ x_0^{(i)}=1$,so the first two terms,$\theta_0$ and $\theta_1$ of multivariate gradient descent are the same as univariate gradient descent.  
-![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/2.png)    
+![contents](https://github.com/MzjHarley/Machine-Learning/blob/main/IMG/Linear%20Regression%20with%20Multiple%20Variables/2.png)   
 ## Gradient Descent in Practice I - Feature Scaling
 In the multi-dimensional feature problem, to help the gradient descent algorithm converge faster, the features need to have a similar scale, which requires us to perform feature scaling(特征缩放).  
 Assuming two features, the value of house size is$~ 0-2000$, and the amount of rooms is $0-5$, the corresponding cost function contour map(left image) will be very flat (skewed elliptical shape), and gradient descent requires a lot of iterations to converge.  
