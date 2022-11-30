@@ -1,4 +1,5 @@
 # SVM手推过程
+以下均本人手推，引用说明出处。
 ## SVM
 <img src="./1.jpg" width="1000px"></img>  
 ## 求解Hard-margin SVM
