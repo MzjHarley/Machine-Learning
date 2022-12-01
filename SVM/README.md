@@ -8,4 +8,4 @@
 ---
 <img src="./3.jpg" width="1000px"></img>  
 ## Soft-margin SVM
-<img src="./5.jpg" width="1000px"></img>  
+<img src="./6.jpg" width="1000px"></img>  
