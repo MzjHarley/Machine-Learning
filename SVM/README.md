@@ -1,4 +1,4 @@
-# SVM手推过程
+# SVM手推
 以下均本人手推，引用说明出处。
 ## SVM
 <img src="./SVM/11.jpg" width="1000px"></img>  
