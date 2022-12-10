@@ -1,5 +1,5 @@
 # SVM手推
-以下均本人手推，引用说明出处。
+以下均本人手推
 ## SVM
 <img src="./SVM/11.jpg" width="1000px"></img>  
 ## Hard-margin SVM
